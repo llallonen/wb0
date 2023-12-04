@@ -232,7 +232,7 @@
           </ul>
         </section>
         <section class="unavailable">
-          <h5>Отсутствуют · 3 товара</h5>
+          <h5 class="unavailable__title">Отсутствуют · 3 товара</h5>
           <div class="ruler"></div>
           <ul>
             <li class="unavailable__item">
@@ -345,39 +345,120 @@
             </li>
           </ul>
         </section>
-        <div>
+        <div class="cart__add">
           <section class="delivery contrast-container">
-            <h2>Способ доставки</h2>
+            <button class="title-btn">
+              <h2>Способ доставки</h2>
+              <p class="title-btn__text h4">Изменить</p>
+            </button>
+            <div class="delivery-wrapper">
+              <div class="delivery-pickup delivery-item">
+                <h5 class="delivery-item__col">Пункт выдачи</h5>
+                <div>
+                  <p class="delivery-adress text">Бишкек, улица Ахматбека Суюмбаева, 12/1</p>
+                  <p class="text--small"><span class="delivery-star"><svg xmlns="http://www.w3.org/2000/svg" width="12"
+                        height="12" viewBox="0 0 12 12" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M6.69769 1.14922C6.43817 0.528396 5.56198 0.528387 5.30244 1.14919L6.69769 1.14922ZM5.30244 1.14919L4.14719 3.90977L1.19202 4.16613C0.519264 4.22467 0.262282 5.05966 0.759713 5.49464L3.00514 7.45915L2.33207 10.3824C2.18436 11.0238 2.87792 11.5567 3.46133 11.2023L6.00032 9.65611L8.53797 11.2015C9.12269 11.5588 9.81568 11.0227 9.66861 10.3826L8.99549 7.45915L11.2402 5.49537C11.7385 5.05961 11.4793 4.22519 10.8083 4.16667L7.85294 3.91029L6.69769 1.14922"
+                          fill="#FF970D" />
+                      </svg>
+                      4.99
+                    </span> Ежедневно с 10 до 21</p>
+                </div>
+              </div>
+              <div class="delivery-price delivery-item">
+                <h5 class="delivery-item__col">Стоимость доставки</h5>
+                <p class="text">Бесплатно</p>
+              </div>
+              <div class="delivery-time delivery-item">
+                <ul class="delivery-time__list delivery-item__col">
+                  <li class="delivery-time__item">
+                    <h5>5—6 февраля</h5>
+                    <div></div>
+                  </li>
+                  <li class="delivery-time__item">
+                    <h5>5—6 февраля</h5>
+                  </li>
+                </ul>
+              </div>
+              <div class="delivery-item">
+                <div class="delivery__refusal"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <g clip-path="url(#clip0_7_2001)">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M17.7354 6.67929L9.58662 15.4839L5.25781 10.6682L6.74523 9.33115L9.60819 12.5162L16.2676 5.3208L17.7354 6.67929Z"
+                        fill="white" />
+                    </g>
+                  </svg>Обратная доставка товаров на склад при отказе — <a href="#">бесплатно</a></div>
+              </div>
+            </div>
           </section>
           <section class="payment contrast-container">
-            <h2>Способ оплаты</h2>
+            <button class="title-btn">
+              <h2>Способ оплаты</h2>
+              <p class="title-btn__text h4">Изменить</p>
+            </button>
+            <div class="payment__card">
+              <img src="./assets/icons/mir.svg" alt="">
+              <p>1234 56•• •••• 1234</p> <span>01/30</span>
+            </div>
           </section>
           <section class="receiver contrast-container">
             <h2>Получатель</h2>
+            <form>
+              <div class="receiver__row receiver__row--1">
+                <div class="receiver__col">
+                  <div class="receiver__label"></div><input type="text" name="name" id="input-name" placeholder="Имя">
+                  <div class="receiver__err"></div>
+                </div>
+                <div class="receiver__col">
+                  <div class="receiver__label"></div><input type="text" name="surname" id="input-surname"
+                    placeholder="Фамилия">
+                  <div class="receiver__err"></div>
+
+                </div>
+              </div>
+              <div class="receiver__row receiver__row--2">
+                <div class="receiver__col">
+                  <div class="receiver__label"></div><input type="email" name="email" id="input-email"
+                    placeholder="Почта">
+                  <div class="receiver__err"></div>
+                </div>
+                <div class="receiver__col">
+                  <div class="receiver__label"></div><input type="tel" name="telephone" id="input-telephone"
+                    placeholder="+7 988 123-45-67">
+                  <div class="receiver__err"></div>
+                </div>
+                <div class="receiver__col">
+                  <div class="receiver__label"></div><input type="number" name="inn-num" id="inn-input"
+                    placeholder="ИНН">
+                  <div class="receiver__err"></div>
+                </div>
+              </div>
+            </form>
           </section>
         </div>
       </div>
       <div class="cart-sidebar contrast-container">
-        <h2 class="cart-sidebar__title">Итого <div id="sidebar-total">2 101 063 <span
-              class="sidebar-toral__currency">сом</span></div>
-        </h2>
         <div class="total-table">
-          <div class="total-table__item sum">
+          <h2 class="cart-sidebar__title">Итого <div id="sidebar-total">2 101 063 <span
+                class="sidebar-toral__currency">сом</span></div>
+          </h2>
+          <div class="total-table__item sum text">
             <div class="sum__count">203 товара</div>
             <div class="sum__total">2 101 063 сом</div>
           </div>
-          <div class="total-table__item discount">
+          <div class="total-table__item discount text">
             <div>Скидка</div>
             <div class="sum__dicount">−200 985 сом</div>
           </div>
-          <div class="total-table__item delivery">
+          <div class="total-table__item delivery text">
             <div>Доставка</div>
             <div class="sum__count">Бесплатно</div>
           </div>
         </div>
         <div class="sidebar-delivery">
-          <button class="sidebar-delivery__button">
-            <h3 class="sidebar-delivery__title">Доставка в пункт выдачи</h3><svg width="16" height="16"
+          <button class="title-btn">
+            <h4 class="sidebar-delivery__title h4">Доставка в пункт выдачи</h4><svg width="16" height="16"
               viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M11.1585 1.05991L14.9401 4.84154L4.72705 15.0546L0.735435 15.8529C0.385575 15.9229 0.0771149 15.6144 0.147087 15.2646L0.94541 11.273L11.1585 1.05991ZM2.17707 11.9321L11.1585 2.95072L13.0493 4.84154L4.06789 13.8229L1.70436 14.2956L2.17707 11.9321Z"
@@ -394,8 +475,8 @@
           </div>
         </div>
         <div class="sidebar-payment">
-          <button class="delivery__button">
-            <h3 class="sidebar-payment__title">Оплата картой</h3>
+          <button class="delivery__button title-btn">
+            <h4 class="sidebar-payment__title">Оплата картой</h4>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M11.1585 1.05991L14.9401 4.84154L4.72705 15.0546L0.735435 15.8529C0.385575 15.9229 0.0771149 15.6144 0.147087 15.2646L0.94541 11.273L11.1585 1.05991ZM2.17707 11.9321L11.1585 2.95072L13.0493 4.84154L4.06789 13.8229L1.70436 14.2956L2.17707 11.9321Z"
@@ -425,10 +506,11 @@
       </div>
     </div>
   </div>
-
   </div>
   </div>
-  <footer class="footer app-container"></footer>
+  <footer class="footer app-container">
+    <p class="text--small">© 2022 ООО «Товары и точка»</p>
+  </footer>
   <script src="./scripts/script.js"></script>
 </body>
 <footer></footer>

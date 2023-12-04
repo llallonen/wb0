@@ -1,29 +1,29 @@
-@import "cart.css";
-@import "colors.css";
-@import "header.css";
+@import 'cart.css';
+@import 'colors.css';
+@import 'header.css';
 
 @font-face {
-  font-family: "Segoe UI";
+  font-family: 'Segoe UI';
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/SegoeUI/SegoeUI-Regular.woff2") format("woff2"),
-    url("../fonts/SegoeUI/SegoeUI-Regular.woff") format("woff");
+  src: url('../fonts/SegoeUI/SegoeUI-Regular.woff2') format('woff2'),
+    url('../fonts/SegoeUI/SegoeUI-Regular.woff') format('woff');
 }
 
 @font-face {
-  font-family: "Segoe UI";
+  font-family: 'Segoe UI';
   font-style: normal;
   font-weight: 600;
-  src: url("../fonts/SegoeUI/SegoeUI-SemiBold.woff2") format("woff2"),
-    url("../fonts/SegoeUI/SegoeUI-SemiBold.woff") format("woff");
+  src: url('../fonts/SegoeUI/SegoeUI-SemiBold.woff2') format('woff2'),
+    url('../fonts/SegoeUI/SegoeUI-SemiBold.woff') format('woff');
 }
 
 @font-face {
-  font-family: "Segoe UI";
+  font-family: 'Segoe UI';
   font-style: normal;
   font-weight: 700;
-  src: url("../fonts/SegoeUI/SegoeUI-Bold.woff2") format("woff2"),
-    url("../fonts/SegoeUI/SegoeUI-Bold.woff") format("woff");
+  src: url('../fonts/SegoeUI/SegoeUI-Bold.woff2') format('woff2'),
+    url('../fonts/SegoeUI/SegoeUI-Bold.woff') format('woff');
 }
 
 * {
@@ -52,7 +52,6 @@ a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
-
 body {
   min-height: 100vh;
   scroll-behavior: smooth;
@@ -79,6 +78,7 @@ h5 {
 
 ul {
   list-style: none;
+  margin: 0;
 }
 
 button {
@@ -93,7 +93,6 @@ button {
 
 h2 {
   font-size: 24px;
-  font-style: normal;
   font-weight: 700;
   line-height: 32px;
   letter-spacing: -0.24px;
@@ -101,7 +100,6 @@ h2 {
 
 h3 {
   font-size: 20px;
-  font-style: normal;
   font-weight: 700;
   /* line-height: 28px; */
 }
@@ -109,16 +107,20 @@ h3 {
 h4,
 .h4 {
   font-size: 16px;
-  font-style: normal;
   font-weight: 700;
   line-height: 24px;
 }
 
-h5 {
+h5,
+.text {
   font-size: 16px;
-  font-style: normal;
   font-weight: 400;
   line-height: 24px;
+}
+
+.text--small {
+  font-size: 13px;
+  line-height: 16px;
 }
 
 img {
@@ -126,16 +128,59 @@ img {
   height: fit-content;
 }
 
+input[type='text'],
+input[type='tel'],
+input[type='number'],
+input[type='email'] {
+  width: 100%;
+  border: none;
+  padding: 0 0 3px 0;
+  border: none;
+  border-bottom: 1px solid var(--gray);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--system-gray, #9797af);
+  outline: none;
+}
+
+input[type='text']:focus,
+input[type='tel']:focus,
+input[type='number']:focus,
+input[type='email']:focus {
+  appearance: none;
+  color: var(--orange);
+  border-bottom-color: var(--orange);
+}
+
 .title {
   margin-top: 13px;
   margin-bottom: 26px;
-  font-family: "Segoe UI", sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   font-size: 28px;
   font-style: normal;
   font-weight: 700;
   line-height: 36px;
   letter-spacing: -0.28px;
 }
+
+.title-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+}
+
+.title-btn:hover,
+.title-btn__text  {
+  color: var(--fuchsia);
+}
+
+.title-btn:hover svg {
+  fill: var(--fuchsia);
+}
+
 
 .check {
   display: flex;
@@ -152,7 +197,7 @@ img {
 
 .check__input:checked + .checkbox {
   background-color: var(--fuchsia);
-  background-image: url("../assets/icons/check.svg");
+  background-image: url('../assets/icons/check.svg');
   box-shadow: 0 0 0 1px var(--fuchsia);
 }
 
@@ -181,7 +226,7 @@ img {
 }
 
 .contrast-container {
-  padding: 18px 24px 24px 24px;
+  padding: 16px 24px 24px 24px;
   border-radius: 16px;
   background: white;
 }
@@ -191,4 +236,11 @@ img {
   width: 100%;
   margin-top: 16px;
   background-color: var(--rulers);
+}
+
+.footer {
+  padding: 24px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.70);
+  margin: 0 auto;
 }
