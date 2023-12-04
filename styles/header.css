@@ -3,10 +3,10 @@
 .header {
   display: flex;
   justify-content: space-between;
-  gap: 32px;
+  gap: 29px;
   align-items: center;
   height: 88px;
-  padding: 16px 24px;
+  padding: 16px 23px 16px 24px;
   background-color: var(--violet);
 }
 
@@ -16,15 +16,21 @@
 }
 
 .logo {
+  width: 106px;
   color: white;
-  font-family: "SegoeUI", sans-serif;
-  font-size: 28px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 30px;
   font-style: normal;
   font-weight: 600;
-  line-height: 24px;
+  line-height: 19px;
   font-variant: all-small-caps;
-  letter-spacing: 0.56px;
+  letter-spacing: 2.4px;
 }
+
+.logo__bottom {
+  letter-spacing: 2.3px;
+  line-height: 27px;
+} 
 
 .header__searchbar {
   flex-grow: 1;
@@ -38,8 +44,8 @@
   border-radius: 36px;
   background-color: rgba(255, 255, 255, 0.22);
   background-image: url("../assets/icons/search.svg");
-  background-size: 23px;
-  background-position: 98% center;
+  background-size: 22px;
+  background-position: 96% center;
   background-repeat: no-repeat;
   color: white;
   cursor: pointer;
@@ -56,41 +62,42 @@
   height: 48px;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.45);
+}
 
-  .burger {
-  }
+.burger,
+.burger::before,
+.burger::after {
+  position: relative;
+  display: block;
+  width: 28px;
+  height: 4px;
+  border-radius: 3px;
+  background-color: white;
+}
 
-  .burger,
-  .burger::before,
-  .burger::after {
-    position: relative;
-    display: block;
-    width: 28px;
-    height: 4px;
-    border-radius: 3px;
-    background-color: white;
-  }
+.burger::before,
+.burger::after {
+  content: "";
+  position: absolute;
+}
 
-  .burger::before,
-  .burger::after {
-    content: "";
-    position: absolute;
-  }
+.burger::before {
+  top: 10px;
+}
 
-  .burger::before {
-    top: 10px;
-  }
-
-  .burger::after {
-    bottom: 10px;
-  }
+.burger::after {
+  bottom: 10px;
 }
 
 .header__nav {
   display: flex;
-  gap: 40px;
+  gap: 35px;
   align-items: center;
   justify-content: space-between;
+}
+
+.profile-btn {
+  padding-left: 3px;
 }
 
 .header__nav-item button {
@@ -99,6 +106,11 @@
   flex-direction: column;
   align-items: center;
   color: white;
+  display: flex;
+  width: 56px;
+  padding-bottom: 3px;
+  gap: 6px;
+  align-self: stretch;
 }
 
 .cart__notify {
