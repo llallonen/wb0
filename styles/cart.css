@@ -15,7 +15,7 @@
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
-  gap: 40px;
+  gap: 39px;
 }
 
 @media (max-width: 480px) {
@@ -185,7 +185,7 @@
 }
 
 .choose-panel__button:hover svg {
-    stroke: var(--fuchsia);
+  stroke: var(--fuchsia);
 }
 
 /*sidebar delivery section*/
@@ -213,8 +213,25 @@
 }
 
 .sidebar-payment__network {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.sidebar-delivery .title-btn,
+.sidebar-payment .title-btn {
+  align-items: center;
+}
+
+.sidebar-delivery__date {
+  width: max-content;
+  margin-bottom: 14px;
+  color: var(--fuchsia);
+  border-bottom: 1px dashed var(--fuchsia);
+}
+
+.sidebar-delivery__add-info {
+  display: flex;
+  gap: 8px;
 }
 
 .sidebar-total {
@@ -234,6 +251,7 @@
   display: flex;
   padding: 8px 8px 12px 8px;
   align-self: stretch;
+  align-items: center;
   gap: 8px;
   width: 100%;
   border-radius: 8px;
@@ -246,8 +264,9 @@
   line-height: 24px;
 }
 
-.cart-sidebar h4{
-    margin-bottom: 4px;
+.cart-sidebar h4,
+.sidebar-delivery__adress {
+  margin-bottom: 4px;
 }
 
 .order-btn {
