@@ -89,6 +89,13 @@ button {
   border: none;
   background-color: transparent;
   cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+
+button:hover,
+button:focus {
+  font-weight: 500;
+  text-shadow: white 0 0 2px;
 }
 
 h2 {
@@ -143,6 +150,8 @@ input[type='email'] {
   line-height: 24px;
   color: var(--system-gray, #9797af);
   outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
 }
 
 input[type='text']:focus,
@@ -171,6 +180,7 @@ input[type='email']:focus {
   align-items: baseline;
   width: 100%;
   cursor: pointer;
+  transition: all 0.1s ease-in;
 }
 
 .title-btn:hover,
@@ -213,6 +223,8 @@ input[type='email']:focus {
   background-repeat: no-repeat;
   background-position: 50% 50%;
   box-shadow: 0 0 0 1px var(--rulers2);
+  cursor: pointer;
+  transition: all 0.2s ease-in;
 }
 
 .container {

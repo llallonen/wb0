@@ -1,4 +1,4 @@
-@import "colors.css";
+@import 'colors.css';
 
 .header {
   display: flex;
@@ -18,7 +18,7 @@
 .logo {
   width: 106px;
   color: white;
-  font-family: "Segoe UI", sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 600;
@@ -30,7 +30,7 @@
 .logo__bottom {
   letter-spacing: 2.3px;
   line-height: 27px;
-} 
+}
 
 .header__searchbar {
   flex-grow: 1;
@@ -43,7 +43,7 @@
   border: none;
   border-radius: 36px;
   background-color: rgba(255, 255, 255, 0.22);
-  background-image: url("../assets/icons/search.svg");
+  background-image: url('../assets/icons/search.svg');
   background-size: 22px;
   background-position: 96% center;
   background-repeat: no-repeat;
@@ -62,6 +62,14 @@
   height: 48px;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.45);
+  background-color: var(--violet);
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+
+.header__burger-btn:hover,
+.header__burger-btn:focus {
+  border: 1px solid rgba(255, 255, 255, 0.75);
 }
 
 .burger,
@@ -77,7 +85,7 @@
 
 .burger::before,
 .burger::after {
-  content: "";
+  content: '';
   position: absolute;
 }
 
@@ -124,7 +132,7 @@
   color: white;
   background-color: var(--orange);
   text-align: center;
-  font-family: "SegoeUI", sans-serif;
+  font-family: 'SegoeUI', sans-serif;
   font-size: 10px;
   font-style: normal;
   font-weight: 700;

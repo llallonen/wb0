@@ -303,6 +303,11 @@
   line-height: 24px;
   color: white;
   background-color: var(--fuchsia);
+  transition: all 0.1s ease-in;
+}
+
+.order-btn:hover {
+    filter: brightness(1.07)
 }
 
 /*unavailable goods section*/
