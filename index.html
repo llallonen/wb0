@@ -12,13 +12,38 @@
     <div class="header__burger-btn">
       <div class="burger"></div>
     </div>
-    <div class="logo">
+    <div class="burger--mob">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M2.75 6C2.75 5.30964 3.30964 4.75 4 4.75H24C24.6904 4.75 25.25 5.30964 25.25 6C25.25 6.69036 24.6904 7.25 24 7.25H4C3.30964 7.25 2.75 6.69036 2.75 6Z"
+          fill="white" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M2.75 14C2.75 13.3096 3.30964 12.75 4 12.75H24C24.6904 12.75 25.25 13.3096 25.25 14C25.25 14.6904 24.6904 15.25 24 15.25H4C3.30964 15.25 2.75 14.6904 2.75 14Z"
+          fill="white" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M2.75 22C2.75 21.3096 3.30964 20.75 4 20.75H18C18.6904 20.75 19.25 21.3096 19.25 22C19.25 22.6904 18.6904 23.25 18 23.25H4C3.30964 23.25 2.75 22.6904 2.75 22Z"
+          fill="white" />
+      </svg>
+    </div>
+    <div class="logo logo--desktop">
       <span class="logo__top">Товары</span><br>
       <span class="logo__bottom">и точка</span>
+    </div>
+    <div class="logo logo--mob">
+      Товары и точка
     </div>
   </div>
   <div class="header__searchbar">
     <input type="search" class="search" placeholder="Я ищу..." />
+    <div class="search--mob">
+      <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M1.99886 8C1.99886 6.4087 2.631 4.88258 3.75622 3.75736C4.88143 2.63214 6.40756 2 7.99886 2C9.59015 2 11.1163 2.63214 12.2415 3.75736C13.3667 4.88258 13.9989 6.4087 13.9989 8C13.9989 9.5913 13.3667 11.1174 12.2415 12.2426C11.1163 13.3679 9.59015 14 7.99886 14C6.40756 14 4.88143 13.3679 3.75622 12.2426C2.631 11.1174 1.99886 9.5913 1.99886 8ZM7.99886 0C6.72572 0.000182277 5.471 0.304218 4.339 0.886839C3.20699 1.46946 2.23038 2.31384 1.49034 3.3498C0.750296 4.38577 0.268189 5.5834 0.0840862 6.84315C-0.100017 8.10291 0.0192008 9.38842 0.431832 10.5928C0.844462 11.7973 1.53859 12.8858 2.45652 13.768C3.37446 14.6502 4.48969 15.3006 5.70953 15.6651C6.92938 16.0296 8.2186 16.0977 9.47006 15.8638C10.7215 15.6298 11.8991 15.1006 12.9049 14.32L18.4339 19.85C18.6215 20.0375 18.8759 20.1428 19.1412 20.1427C19.4065 20.1426 19.6608 20.0371 19.8484 19.8495C20.0359 19.6619 20.1412 19.4074 20.1411 19.1421C20.141 18.8769 20.0355 18.6225 19.8479 18.435L14.3179 12.905C15.2356 11.7225 15.8032 10.3063 15.9561 8.81726C16.109 7.32825 15.8411 5.82621 15.1829 4.48188C14.5246 3.13754 13.5024 2.00485 12.2324 1.21256C10.9625 0.420272 9.4957 0.000166004 7.99886 0Z"
+          fill="white" />
+      </svg>
+
+    </div>
   </div>
   <div class="header__nav">
     <div class="header__nav-item profile-btn">
@@ -76,6 +101,10 @@
                     <input type="checkbox" class="check__input"><span class="checkbox"></span>
                     <img class="good__pic" src="assets/goods/uzcotton.png" alt="">
                     <div class="good__description">
+                      <div class="subtotal subtotal--mob">
+                        <h3 class="subtotal__discount">522 <span class="h4">сом</span></h3>
+                        <div class="subtotal__full">1051 сом</div>
+                      </div>
                       <h5 class="good__title">Футболка UZcotton мужская</h5>
                       <div class="good__info">
                         <div class="good__color">Цвет: белый</div>
@@ -116,7 +145,7 @@
                         </button>
                       </div>
                     </div>
-                    <div class="cart-item__subtotal subtotal">
+                    <div class="cart-item__subtotal subtotal subtotal--desktop">
                       <h3 class="subtotal__discount">522 <span class="h4">сом</span></h3>
                       <div class="subtotal__full">1051 сом</div>
                     </div>
@@ -382,14 +411,29 @@
                 </ul>
               </div>
               <div class="delivery-item">
-                <div class="delivery__refusal"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                    viewBox="0 0 22 22" fill="none">
-                    <g clip-path="url(#clip0_7_2001)">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M17.7354 6.67929L9.58662 15.4839L5.25781 10.6682L6.74523 9.33115L9.60819 12.5162L16.2676 5.3208L17.7354 6.67929Z"
-                        fill="white" />
-                    </g>
-                  </svg>Обратная доставка товаров на склад при отказе — <a href="#">бесплатно</a></div>
+                <div class="delivery__refusal">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M1 10.9998C1 16.5226 5.47715 20.9998 11 20.9998C16.5228 20.9998 21 16.5226 21 10.9998C21 5.47691 16.5228 0.999756 11 0.999756C5.47715 0.999756 1 5.47691 1 10.9998ZM19.1818 10.9997C19.1818 15.5184 15.5187 19.1816 11 19.1816C6.48128 19.1816 2.81815 15.5184 2.81815 10.9997C2.81815 6.48103 6.48128 2.81791 11 2.81791C15.5187 2.81791 19.1818 6.48103 19.1818 10.9997Z"
+                      fill="url(#paint0_linear_7_353)" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M6.98273 9.6548C7.40206 9.29538 8.03336 9.34394 8.39278 9.76327L10.6286 12.3717L14.6826 7.58061C15.0394 7.15901 15.6704 7.10643 16.092 7.46317C16.5136 7.81991 16.5662 8.45089 16.2094 8.8725L11.7761 14.1118C11.1795 14.817 10.0933 14.8204 9.49219 14.1191L6.87427 11.0648C6.51485 10.6455 6.56341 10.0142 6.98273 9.6548Z"
+                      fill="url(#paint1_linear_7_353)" />
+                    <defs>
+                      <linearGradient id="paint0_linear_7_353" x1="4" y1="1.99994" x2="11" y2="20.9998"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#0CD38B" />
+                        <stop offset="1" stop-color="#0CB477" />
+                      </linearGradient>
+                      <linearGradient id="paint1_linear_7_353" x1="9" y1="7.5" x2="10.5089" y2="15.8594"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#0CD38B" />
+                        <stop offset="1" stop-color="#0CB477" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <p>Обратная доставка товаров на склад при отказе — <a href="#">бесплатно</a></p>
+                </div>
               </div>
             </div>
           </section>
@@ -400,8 +444,10 @@
             </button>
             <div class="payment__card">
               <img src="./assets/icons/mir.svg" alt="">
-              <p>1234 56•• •••• 1234</p> <span>01/30</span>
+              <p class="text card-number">1234 56•• •••• 1234</p>
+              <p class="text">01/30</p>
             </div>
+            <p class="text--small">Спишем оплату с карты при получении</p>
           </section>
           <section class="receiver contrast-container">
             <h2>Получатель</h2>
@@ -415,7 +461,6 @@
                   <div class="receiver__label"></div><input type="text" name="surname" id="input-surname"
                     placeholder="Фамилия">
                   <div class="receiver__err"></div>
-
                 </div>
               </div>
               <div class="receiver__row receiver__row--2">
@@ -494,7 +539,8 @@
                 </defs>
               </svg>
             </div>
-            <p class="sidebar-delivery__refusal">Обратная доставка товаров на склад при отказе — <span>бесплатно</span></p>
+            <p class="sidebar-delivery__refusal">Обратная доставка товаров на склад при отказе — <span>бесплатно</span>
+            </p>
           </div>
         </div>
         <div class="sidebar-payment">

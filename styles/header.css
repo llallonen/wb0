@@ -10,21 +10,48 @@
   background-color: var(--violet);
 }
 
+@media (max-width: 480px) {
+  .header {
+    height: auto;
+    padding: 11px 16px 14px;
+  }
+}
+
 .header__left {
   display: flex;
   gap: 16px;
 }
 
 .logo {
-  width: 106px;
   color: white;
   font-family: 'Segoe UI', sans-serif;
-  font-size: 30px;
   font-style: normal;
   font-weight: 600;
-  line-height: 19px;
   font-variant: all-small-caps;
+}
+
+.logo--desktop {
+  width: 106px;
+  font-size: 30px;
   letter-spacing: 2.4px;
+  line-height: 19px;
+}
+
+.logo--mob {
+  display: none;
+  font-size: 26px;
+  line-height: 24px;
+  letter-spacing: 0.52px;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+
+  .logo--mob {
+    display: block;
+  }
 }
 
 .logo__bottom {
@@ -54,6 +81,26 @@
   transition: all 0.3s ease 0s;
 }
 
+.search--mob {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .search--mob {
+    display: block;
+  }
+
+  .header__searchbar {
+    flex: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .search {
+    display: none;
+  }
+}
+
 .header__burger-btn {
   display: flex;
   align-items: center;
@@ -70,6 +117,12 @@
 .header__burger-btn:hover,
 .header__burger-btn:focus {
   border: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 768px) {
+  .header__burger-btn {
+    display: none;
+  }
 }
 
 .burger,
@@ -97,11 +150,27 @@
   bottom: 10px;
 }
 
+.burger--mob {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .burger--mob {
+    display: block;
+  }
+}
+
 .header__nav {
   display: flex;
   gap: 35px;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .header__nav {
+    display: none;
+  }
 }
 
 .profile-btn {
