@@ -439,7 +439,7 @@
           </section>
         </div>
       </div>
-      <div class="cart-sidebar contrast-container">
+      <div class="cart-sidebar contrast-container sidebar">
         <div class="total-table">
           <h2 class="cart-sidebar__title">Итого <div id="sidebar-total">2 101 063 <span
                 class="sidebar-toral__currency">сом</span></div>
@@ -494,7 +494,7 @@
                 </defs>
               </svg>
             </div>
-            <p>Обратная доставка товаров на склад при отказе — <span>бесплатно</span></p>
+            <p class="sidebar-delivery__refusal">Обратная доставка товаров на склад при отказе — <span>бесплатно</span></p>
           </div>
         </div>
         <div class="sidebar-payment">
@@ -520,16 +520,26 @@
                   <span class="checkbox"></span>
                   Списать оплату сразу
                 </label>
-                <p>Спишем оплату с карты при получении</p>
               </div>
+              <p>Спишем оплату с карты при получении</p>
             </div>
           </div>
         </div>
-        <button class="order-btn" type="button">Заказать</button>
+        <div class="sidebar__order">
+          <button class="order-btn" type="button">Заказать</button>
+          <div class="sidebar__oferta">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="24" viewBox="0 0 13 24" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M12.7656 4.68034L4.59581 13.4815L0.257278 8.66922L1.74272 7.33001L4.61735 10.5185L11.2998 3.31967L12.7656 4.68034Z"
+                  fill="black" />
+              </svg>
+            </div>
+            <p class="text--small">Соглашаюсь с правилами пользования торговой площадкой и возврата</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  </div>
   </div>
   <footer class="footer app-container">
     <p class="text--small">© 2022 ООО «Товары и точка»</p>
