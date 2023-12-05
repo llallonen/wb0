@@ -19,6 +19,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .cart-sidebar {
+    width: 100%;
+  }
+}
+
 .cart-sidebar .checkbox {
   margin-right: 8px;
 }

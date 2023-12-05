@@ -106,10 +106,28 @@ h2 {
   letter-spacing: -0.24px;
 }
 
+@media (max-width: 560px) {
+  h2 {
+    font-size: 20px;
+    line-height: 28px; /* 140% */
+    letter-spacing: -0.2px;
+  }
+}
+
 h3 {
   font-size: 20px;
   font-weight: 700;
   /* line-height: 28px; */
+}
+@media (max-width: 560px) {
+  h2 {
+    font-family: Segoe UI;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 140% */
+    letter-spacing: -0.2px;
+  }
 }
 
 h4,
@@ -124,6 +142,13 @@ h5,
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
+}
+
+@media (max-width: 560px) {
+  h5 {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 
 .text--small {
@@ -175,6 +200,16 @@ input[type='email']:focus {
   letter-spacing: -0.28px;
 }
 
+@media (max-width: 560px) {
+  .title {
+    margin-top: 0;
+    margin-bottom: 13.5px;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+  }
+}
+
 .title-btn {
   display: flex;
   justify-content: space-between;
@@ -185,14 +220,13 @@ input[type='email']:focus {
 }
 
 .title-btn:hover,
-.title-btn__text  {
+.title-btn__text {
   color: var(--fuchsia);
 }
 
 .title-btn:hover svg {
   fill: var(--fuchsia);
 }
-
 
 .check {
   display: flex;
@@ -251,6 +285,13 @@ input[type='email']:focus {
   background: white;
 }
 
+@media (max-width: 560px) {
+  .contrast-container {
+    margin: 0 -16px;
+    padding: 16px;
+  }
+}
+
 .ruler {
   height: 1px;
   width: 100%;
@@ -261,6 +302,6 @@ input[type='email']:focus {
 .footer {
   padding: 24px;
   text-align: center;
-  color: rgba(255, 255, 255, 0.70);
+  color: rgba(255, 255, 255, 0.7);
   margin: 0 auto;
 }

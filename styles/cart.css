@@ -58,6 +58,12 @@
   margin-bottom: 20px;
 }
 
+@media (max-width: 680px) {
+  .cart__item {
+    padding-top: 0;
+  }
+}
+
 .count {
   padding: 8px 4px 10px;
   display: flex;
@@ -148,10 +154,12 @@
 @media (max-width: 480px) {
   .good__pic {
     margin: 0;
+    width: 80px;
+    margin-right: 16px;
   }
 }
 
-@media (max-width: 680px) {
+@media (min-width: 480px) and (max-width: 680px) {
   .good__pic {
     margin-right: 35px;
   }
@@ -184,6 +192,11 @@
 @media (max-width: 480px) {
   .good__description {
     width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .good__description {
+    padding-right: 0;
   }
 }
 
