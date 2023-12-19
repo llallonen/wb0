@@ -24,6 +24,11 @@
     width: 100%;
   }
 }
+@media (max-width: 1023px) {
+  .cart-sidebar {
+    width: auto;
+  }
+}
 
 .cart-sidebar .checkbox {
   margin-right: 8px;

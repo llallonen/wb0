@@ -23,40 +23,17 @@
 }
 
 .logo {
-  color: white;
-  font-family: 'Segoe UI', sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-variant: all-small-caps;
-}
-
-.logo--desktop {
   width: 106px;
-  font-size: 30px;
-  letter-spacing: 2.4px;
-  line-height: 19px;
-}
-
-.logo--mob {
-  display: none;
-  font-size: 26px;
-  line-height: 24px;
-  letter-spacing: 0.52px;
+  background-image: url('../src/assets/logo.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @media (max-width: 768px) {
   .logo {
-    display: none;
+    width: 200px;
+    background-image: url('../src/assets/logo-mob.svg');
   }
-
-  .logo--mob {
-    display: block;
-  }
-}
-
-.logo__bottom {
-  letter-spacing: 2.3px;
-  line-height: 27px;
 }
 
 .header__searchbar {
@@ -70,7 +47,7 @@
   border: none;
   border-radius: 36px;
   background-color: rgba(255, 255, 255, 0.22);
-  background-image: url('../assets/icons/search.svg');
+  background-image: url('../src/assets/icons/search.svg');
   background-size: 22px;
   background-position: 96% center;
   background-repeat: no-repeat;
@@ -79,6 +56,10 @@
   -webkit-appearance: none;
   appearance: none;
   transition: all 0.3s ease 0s;
+}
+
+.search::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .search--mob {

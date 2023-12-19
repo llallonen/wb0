@@ -40,6 +40,10 @@
   width: 100%;
 }
 
+.cart__item {
+  border-radius: 8px;
+}
+
 @media (max-width: 680px) {
   .cart-item__wr {
     flex-direction: column;
@@ -130,7 +134,10 @@
 
 .cart-item__good {
   display: flex;
+  cursor: pointer;
 }
+
+
 
 @media (max-width: 680px) {
   .cart-item__good {
@@ -202,7 +209,6 @@
 
 .good__title {
   margin-bottom: 8px;
-  width: 300px;
 }
 
 @media (max-width: 480px) {

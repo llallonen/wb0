@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "title": "Футболка UZcotton мужская",
+    "color": "белый",
+    "size": 56,
+    "store": "Коледино WB",
+    "provider": "OOO Вайлдберриз",
+    "price": 522,
+    "fullPrice": 1051,
+    "stock": 2,
+    "img": "src/assets/goods/uzcotton.png"
+  },
+  {
+    "id": 2,
+    "title": "Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe",
+    "color": "прозрачный",
+    "store": "Коледино WB",
+    "provider": "OOO Мегапрофстиль",
+    "price": 10500,
+    "fullPrice": 11500,
+    "stock": 200,
+    "img": "src/assets/goods/mobisafe.png"
+  },
+  {
+    "id": 3,
+    "title": "Карандаши цветные Faber-Castell \"Замок\", набор 24 цвета, заточенные, шестигранные, Faber-Castell",
+    "store": "Коледино WB",
+    "provider": "OOO Вайлдберриз",
+    "price": 247,
+    "fullPrice": 475,
+    "stock": 2,
+    "img": "src/assets/goods/fiber.png"
+  },
+  {
+    "id": 4,
+    "title": "Candle.light Свеча интерьерная в керамическом подсвечнике Premium",
+    "store": "Коледино WB",
+    "color": "белый",
+    "provider": "OOO Вайлдберриз",
+    "price": 180,
+    "fullPrice": 205,
+    "stock": 0,
+    "img": "src/assets/goods/candle.png"
+  },
+  {
+    "id": 5,
+    "title": "Чайник заварочный стеклянный - заварник 900мл",
+    "store": "Коледино WB",
+    "color": "прозрачный",
+    "provider": "OOO Вайлдберриз",
+    "price": 200,
+    "fullPrice": 250,
+    "stock": 0,
+    "img": "src/assets/goods/kettle.png"
+  }
+]
