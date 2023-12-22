@@ -3,8 +3,7 @@ import data from "../data.json/";
 
 export const AppContext = createContext();
 
-export const initialItems = data;
-let sum = 0;
+export const initialItems = { sum: 0, data: data };
 
 //добавить 1 единицу товара
 //удалить 1 единицу товара
@@ -26,15 +25,13 @@ export function removeAll() {
   return { type: REMOVE_ALL };
 }
 
-
-export function itemsReducer(state, action) { //стейт тут что вообще
+export function itemsReducer(state, action) {
   switch (action.type) {
     case ADD_ITEM:
-      sum += action.price;
-      console.log(sum);
-      //return sum += action.price;
+      state.sum += Number(action.price);
+      return state;
     case REMOVE_ITEM:
-      const copy = [...state];
+      const copy = [...state.data.items];
       copy.splice(action.index, 1);
       return copy;
     case REMOVE_ALL:
@@ -47,7 +44,8 @@ export function itemsReducer(state, action) { //стейт тут что воо�
 export function AppProvider(props) {
   const [items, dispatch] = useReducer(itemsReducer, initialItems);
 
-  const appData = { items, dispatch };
+  const appData = { items, dispatch};
+  console.log(appData)
 
   return <AppContext.Provider value={appData} {...props} />;
 }

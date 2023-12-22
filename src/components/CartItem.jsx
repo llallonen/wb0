@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { addItem, useAppContext } from "../AppContext";
+import { addItem, removeItem, useAppContext } from "../AppContext";
 
 const CartItem = ({ item }) => {
-  const hui = item;
-  const [count, setCount] = useState(1);
   const { dispatch } = useAppContext();
 
   if (item.stock > 0)
@@ -47,7 +45,7 @@ const CartItem = ({ item }) => {
                     –
                   </button>
                   <input className="count__input" type="text" value="1"/>
-                  <button className="count__btn count__plus" type="button">
+                  <button className="count__btn count__plus" type="button" onClick={() => dispatch(addItem(item.price))}>
                     +
                   </button>
                 </div>
@@ -71,7 +69,7 @@ const CartItem = ({ item }) => {
                       />
                     </svg>
                   </button>
-                  <button className="choose-panel__button" type="button" onClick={() => dispatch(addItem(hui.price))}>
+                  <button className="choose-panel__button" type="button" onClick={() => dispatch(removeItem(item.index))}>
                     <svg
                       width="16"
                       height="16"

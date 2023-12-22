@@ -3,11 +3,11 @@ import CartItem from "./CartItem";
 import { AppContext } from "../AppContext";
 
 const CartList = () => {
-  const appContext = useContext(AppContext);
+  const { items, dispatch, sum } = useContext(AppContext);
 
   return (
     <ul>
-      {appContext.items.map((item) => (
+      {items.data.map((item) => (
         <CartItem item={item} key={item.id} />
       ))}
     </ul>

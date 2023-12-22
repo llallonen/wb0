@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import DeliveryModal from "./DeliveryModal/DeliveryModal";
+import PaymentModal from "./PaymentModal";
 
 const Sidebar = () => {
+    const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+    const [isDeliveryModalOpen, setIsDeliveryModalOpen] = useState(false);
   return (
+    <>
     <div className="cart-sidebar contrast-container sidebar">
       <div className="total-table">
         <h2 className="cart-sidebar__title">
@@ -24,7 +29,7 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="sidebar-delivery">
-        <button className="title-btn">
+        <button className="title-btn" onClick={() => setIsDeliveryModalOpen(true)}>
           <h4 className="sidebar-delivery__title h4">
             Доставка в пункт выдачи
           </h4>
@@ -107,7 +112,7 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="sidebar-payment">
-        <button className="delivery__button title-btn">
+        <button className="delivery__button title-btn" onClick={() => setIsPaymentModalOpen(true)}>
           <h4 className="sidebar-payment__title h4">Оплата картой</h4>
           <svg
             width="20"
@@ -174,7 +179,11 @@ const Sidebar = () => {
         </div>
       </div>
     </div>
+          {isPaymentModalOpen && <PaymentModal setIsOpen={setIsPaymentModalOpen} />}
+          {isDeliveryModalOpen && <DeliveryModal setIsOpen={setIsDeliveryModalOpen} />}
+    </>
   );
 };
 
 export default Sidebar;
+ 
