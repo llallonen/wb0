@@ -53,5 +53,41 @@
     "fullPrice": 250,
     "stock": 0,
     "img": "src/assets/goods/kettle.png"
+  },
+  {
+    "id": 6,
+    "title": "Ваза керамическая, настольная, 28х8 см",
+    "store": "Коледино WB",
+    "color": "прозрачный",
+    "provider": "OOO Вайлдберриз",
+    "price": 300,
+    "fullPrice": 450,
+    "stock": 10,
+    "img": "src/assets/goods/vase.png",
+    "rec": true
+  },
+  {
+    "id": 7,
+    "title": "Купить Подушка декоративная 432х27см",
+    "store": "Коледино WB",
+    "color": "прозрачный",
+    "provider": "OOO Вайлдберриз",
+    "price": 420,
+    "fullPrice": 490,
+    "stock": 6,
+    "img": "src/assets/goods/pillow.png",
+    "rec": true
+  },
+  {
+    "id": 8,
+    "title": "Вязаный шерстяной плед Nelle кремовый",
+    "store": "Коледино WB",
+    "color": "прозрачный",
+    "provider": "OOO Вайлдберриз",
+    "price": 2200,
+    "fullPrice": 3250,
+    "stock": 4,
+    "img": "src/assets/goods/blanket.png",
+    "rec": true
   }
 ]

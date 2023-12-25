@@ -336,6 +336,26 @@
   gap: 16px;
 }
 
+
+/*recommendation*/
+.recommendation ul {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+  margin-top: 16px;
+  padding: 0;
+}
+
+.rec__item {
+  width: 33%;
+}
+
+.rec__item img {
+  object-fit: cover;
+  height: 240px;
+  width: 100%;
+}
+
 /*delivery section*/
 .delivery-wrapper {
   display: flex;

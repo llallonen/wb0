@@ -1,8 +1,34 @@
 import React, { useState } from "react";
-import { addItem, removeItem, useAppContext } from "../AppContext";
+import {
+  addItem,
+  changeQuantity,
+  removeItem,
+  useAppContext,
+} from "../AppContext";
 
 const CartItem = ({ item }) => {
-  const { dispatch } = useAppContext();
+  const { state, dispatch } = useAppContext();
+  const [qua, setQua] = useState(item.quantity);
+  const [price, setPrice] = useState(item.price);
+
+
+  function decrement() {
+    if (qua > 0) {
+      setQua(qua - 1);
+      setPrice(price - item.price);
+      state.sum -= price
+      console.log(state.sum)
+    }
+  }
+
+  function increment() {
+    if (qua < item.stock) {
+      setQua(qua + 1);
+      setPrice(price + item.price);
+      state.sum += price
+      console.log(state.sum)
+    }
+  }
 
   if (item.stock > 0)
     return (
@@ -41,11 +67,25 @@ const CartItem = ({ item }) => {
             <div className="cart-item-col">
               <div className="cart-item__choose">
                 <div className="cart-item__count count">
-                  <button className="count__btn count__minus" type="button">
+                  <button
+                    className="count__btn count__minus"
+                    type="button"
+                    onClick={() => {
+                      dispatch(changeQuantity(item.id));
+                      decrement();
+                    }}
+                  >
                     –
                   </button>
-                  <input className="count__input" type="text" value="1"/>
-                  <button className="count__btn count__plus" type="button" onClick={() => dispatch(addItem(item.price))}>
+                  <input className="count__input" type="text" value={qua} />
+                  <button
+                    className="count__btn count__plus"
+                    type="button"
+                    onClick={() => {
+                      dispatch(changeQuantity(item.id));
+                      increment();
+                    }}
+                  >
                     +
                   </button>
                 </div>
@@ -69,7 +109,11 @@ const CartItem = ({ item }) => {
                       />
                     </svg>
                   </button>
-                  <button className="choose-panel__button" type="button" onClick={() => dispatch(removeItem(item.index))}>
+                  <button
+                    className="choose-panel__button"
+                    type="button"
+                    onClick={() => dispatch(removeItem(item.index))}
+                  >
                     <svg
                       width="16"
                       height="16"
@@ -101,7 +145,7 @@ const CartItem = ({ item }) => {
               </div>
               <div className="cart-item__subtotal subtotal subtotal--desktop">
                 <h3 className="subtotal__discount">
-                  {item.price} <span className="h4">сом</span>
+                  {price} <span className="h4">сом</span>
                 </h3>
                 <div className="subtotal__full">{item.fullPrice} сом</div>
               </div>

@@ -3,11 +3,11 @@ import { AppContext } from "../AppContext";
 import UnavailableItem from "./UnavailableItem";
 
 const UnavailableList = () => {
-  const { items, dispatch, sum } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
 
   return (
     <ul>
-      {items.data.map(
+      {state.data.map(
         (item) =>
           item.stock === 0 && <UnavailableItem item={item} key={item.id} />
       )}

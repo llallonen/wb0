@@ -3,6 +3,7 @@ import CartAdd from "./CartAdd";
 import CartList from "./CartList";
 import Sidebar from "./Sidebar";
 import UnavailableList from "./UnavailableList";
+import Recommendation from "./Recommendation";
 
 const Cart = () => {
   return (
@@ -24,6 +25,7 @@ const Cart = () => {
             <div className="ruler"></div>
             <UnavailableList />
           </section>
+          <Recommendation />
           <CartAdd />
         </div>
         <Sidebar />

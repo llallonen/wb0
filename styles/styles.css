@@ -100,6 +100,21 @@ button:focus {
   text-shadow: white 0 0 2px;
 }
 
+.btn {
+  width: 100%;
+  height: 44px;
+  margin-bottom: 12px;
+  padding-bottom: 3px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  line-height: 24px;
+  color: white;
+  background-color: var(--fuchsia);
+  transition: all 0.1s ease-in;
+}
+
 h2 {
   font-size: 24px;
   font-weight: 700;
