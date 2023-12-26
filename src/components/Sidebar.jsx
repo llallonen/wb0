@@ -1,18 +1,21 @@
-import React, { useMemo, useContext, useState } from "react";
+import { useMemo, useContext, useState } from "react";
 import DeliveryModal from "./DeliveryModal/DeliveryModal";
 import PaymentModal from "./PaymentModal";
-import { AppContext, useAppContext } from "../AppContext";
+import { AppContext } from "../AppContext";
 
 const Sidebar = () => {
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [isDeliveryModalOpen, setIsDeliveryModalOpen] = useState(false);
   const { state } = useContext(AppContext);
-  
+
   const finalPrice = useMemo(() => {
-    return state.basket.reduce((acc,item) => acc + item.price * item.quantity , 0);
-  }, [state.basket])
-  
-  console.log('finalPrice', finalPrice)
+    return state.basket.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
+  }, [state.basket]);
+
+  console.log("finalPrice", finalPrice);
 
   return (
     <>
@@ -21,7 +24,8 @@ const Sidebar = () => {
           <h2 className="cart-sidebar__title">
             Итого{" "}
             <div id="sidebar-total">
-              {finalPrice}<span className="sidebar-toral__currency">сом</span>
+              {finalPrice}
+              <span className="sidebar-toral__currency">сом</span>
             </div>
           </h2>
           <div className="total-table__item sum text">

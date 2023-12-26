@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import CartItem from "./CartItem";
 import { AppContext } from "../AppContext";
 
 const CartList = () => {
-  const { state, dispatch, } = useContext(AppContext);
+  const { state } = useContext(AppContext);
 
   return (
     <ul>
@@ -15,4 +15,3 @@ const CartList = () => {
 };
 
 export default CartList;
-

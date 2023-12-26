@@ -73,9 +73,6 @@ export function removeItem(index) {
   return { type: REMOVE_ITEM, index };
 }
 
-export function removeAll() {
-  return { type: REMOVE_ALL };
-}
 export function changeTotal() {
   return { type: CHANGE_TOTAL };
 }
@@ -83,22 +80,28 @@ export function changeTotal() {
 export function itemsReducer(state, action) {
   switch (action.type) {
     case MINUS_QUANTITY:
-      state.basket[action.payload - 1].quantity -= 1;
-      return state;
-    case PLUS_QUANTITY:
-      // Копируем то что в корзине 
       const oldBasket = [...state.basket];
-      // Ищем наш айтем (там где мы кликнули +)
       const item = oldBasket.find((_, index) => action.payload - 1 === index);
-      // Изменяем куантити
-      Object.assign(item, { quantity: item.quantity + 1 })
-      // Заменяем в массиве старый айтем на новый
+      Object.assign(item, { quantity: item.quantity - 1 });
       oldBasket.splice(action.payload - 1, 1, item);
-      
+      return {
+        ...state,
+        basket: oldBasket,
+      };
+    case PLUS_QUANTITY:
+      // Копируем то что в корзине
+      const oldBasket1 = [...state.basket];
+      // Ищем наш айтем (там где мы кликнули +)
+      const item1 = oldBasket1.find((_, index) => action.payload - 1 === index);
+      // Изменяем куантити
+      Object.assign(item1, { quantity: item1.quantity + 1 });
+      // Заменяем в массиве старый айтем на новый
+      oldBasket1.splice(action.payload - 1, 1, item1);
+
       // Возвращаем новый стейт (так нужно делать всегда)
       return {
         ...state,
-        basket: oldBasket
+        basket: oldBasket1,
       };
     case CHANGE_TOTAL:
       state.sum += action.payload;
@@ -107,8 +110,6 @@ export function itemsReducer(state, action) {
       const copy = [...state.data.items];
       copy.splice(action.index, 1);
       return copy;
-    case REMOVE_ALL:
-      return [];
     default:
       return state;
   }

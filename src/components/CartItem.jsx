@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { removeItem, useAppContext } from "../AppContext";
 
 const CartItem = ({ item }) => {
