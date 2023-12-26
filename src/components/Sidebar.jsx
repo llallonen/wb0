@@ -7,11 +7,8 @@ const Sidebar = () => {
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [isDeliveryModalOpen, setIsDeliveryModalOpen] = useState(false);
   const { state } = useAppContext();
-  const [summ, setSumm] = useState(state.sum);
+  const finalPrice = state.basket.reduce((acc,item) => acc + item.price * item.quantity , 0)
 
-  useEffect(() => {
-    setSumm(state.sum);
-  }, [state]);
 
   return (
     <>
@@ -20,7 +17,7 @@ const Sidebar = () => {
           <h2 className="cart-sidebar__title">
             Итого{" "}
             <div id="sidebar-total">
-              {summ} <span className="sidebar-toral__currency">сом</span>
+              {finalPrice}<span className="sidebar-toral__currency">сом</span>
             </div>
           </h2>
           <div className="total-table__item sum text">

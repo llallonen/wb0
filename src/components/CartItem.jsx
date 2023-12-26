@@ -1,23 +1,18 @@
 import React, { useState } from "react";
-import {
-  addItem,
-  changeQuantity,
-  removeItem,
-  useAppContext,
-} from "../AppContext";
+import { removeItem, useAppContext } from "../AppContext";
 
 const CartItem = ({ item }) => {
   const { state, dispatch } = useAppContext();
   const [qua, setQua] = useState(item.quantity);
   const [price, setPrice] = useState(item.price);
 
-
   function decrement() {
     if (qua > 0) {
       setQua(qua - 1);
       setPrice(price - item.price);
-      state.sum -= price
-      console.log(state.sum)
+      dispatch({ type: "MINUS_QUANTITY", payload: item.id });
+      dispatch({ type: "CHANGE_TOTAL", payload: -(item.price) });
+      console.log(state)
     }
   }
 
@@ -25,8 +20,9 @@ const CartItem = ({ item }) => {
     if (qua < item.stock) {
       setQua(qua + 1);
       setPrice(price + item.price);
-      state.sum += price
-      console.log(state.sum)
+      dispatch({ type: "PLUS_QUANTITY", payload: item.id });
+      dispatch({ type: "CHANGE_TOTAL", payload: item.price });
+      console.log(state)
     }
   }
 
@@ -42,7 +38,7 @@ const CartItem = ({ item }) => {
               <div className="good__description">
                 <div className="subtotal subtotal--mob">
                   <h4 className="subtotal__discount">
-                    {item.price} <span className="h4">сом</span>
+                    {price} <span className="h4">сом</span>
                   </h4>
                   <div className="subtotal__full">{item.fullPrice} сом</div>
                 </div>
@@ -71,7 +67,7 @@ const CartItem = ({ item }) => {
                     className="count__btn count__minus"
                     type="button"
                     onClick={() => {
-                      dispatch(changeQuantity(item.id));
+                      // dispatch(changeQuantity(item.id));
                       decrement();
                     }}
                   >
@@ -82,7 +78,7 @@ const CartItem = ({ item }) => {
                     className="count__btn count__plus"
                     type="button"
                     onClick={() => {
-                      dispatch(changeQuantity(item.id));
+                      // dispatch({ type: "CHANGE_TOTAL", payload: item.price });
                       increment();
                     }}
                   >

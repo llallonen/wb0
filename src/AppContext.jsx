@@ -4,7 +4,7 @@ import data from "../data.json/";
 const initialBasket = [
   {
     id: 1,
-    title: "Футболка UZcotton мужская11",
+    title: "Футболка UZcotton мужская",
     color: "белый",
     size: 56,
     store: "Коледино WB",
@@ -53,14 +53,20 @@ export const initialItems = { sum: 0, basket: initialBasket, data: data };
 export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const CLEAR_ALL = "CLEAR_ALL";
-export const CHANGE_QUANTITY = "CHANGE_QUANTITY";
+export const MINUS_QUANTITY = "MINUS_QUANTITY";
+export const PLUS_QUANTITY = "PLUS_QUANTITY";
+export const CHANGE_TOTAL = "CHANGE_TOTAL";
 
 export function addItem(price) {
   return { type: ADD_ITEM, price };
 }
 
-export function changeQuantity(id) {
-  return { type: CHANGE_QUANTITY, id };
+export function minusQuantity(id) {
+  return { type: MINUS_QUANTITY, id };
+}
+
+export function plusQuantity(id) {
+  return { type: PLUS_QUANTITY, id };
 }
 
 export function removeItem(index) {
@@ -70,16 +76,21 @@ export function removeItem(index) {
 export function removeAll() {
   return { type: REMOVE_ALL };
 }
+export function changeTotal() {
+  return { type: CHANGE_TOTAL };
+}
 
 export function itemsReducer(state, action) {
   switch (action.type) {
-    case CHANGE_QUANTITY:
-      state.basket[action.id - 1].quantity += 1
-      state.sum += state.basket[action.id - 1].price
+    case MINUS_QUANTITY:
+      state.basket[action.payload - 1].quantity -= 1;
       return state;
-    case ADD_ITEM:
-      state.sum = state.sum * payload.quantity;
-      //state.sum += Number(action.price);
+    case PLUS_QUANTITY:
+      state.basket[action.payload - 1].quantity += 1;
+      // state.sum += state.basket[action.payload - 1].price;
+      return state;
+    case CHANGE_TOTAL:
+      state.sum += action.payload;
       return state;
     case REMOVE_ITEM:
       const copy = [...state.data.items];
