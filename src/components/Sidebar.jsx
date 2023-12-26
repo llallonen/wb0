@@ -9,7 +9,6 @@ const Sidebar = () => {
   const { state } = useAppContext();
   const finalPrice = state.basket.reduce((acc,item) => acc + item.price * item.quantity , 0)
 
-
   return (
     <>
       <div className="cart-sidebar contrast-container sidebar">
