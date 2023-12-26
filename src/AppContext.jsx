@@ -87,7 +87,6 @@ export function itemsReducer(state, action) {
       return state;
     case PLUS_QUANTITY:
       state.basket[action.payload - 1].quantity += 1;
-      // state.sum += state.basket[action.payload - 1].price;
       return state;
     case CHANGE_TOTAL:
       state.sum += action.payload;
