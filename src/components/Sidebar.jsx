@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useMemo, useContext, useState } from "react";
 import DeliveryModal from "./DeliveryModal/DeliveryModal";
 import PaymentModal from "./PaymentModal";
 import { AppContext, useAppContext } from "../AppContext";
@@ -6,8 +6,13 @@ import { AppContext, useAppContext } from "../AppContext";
 const Sidebar = () => {
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [isDeliveryModalOpen, setIsDeliveryModalOpen] = useState(false);
-  const { state } = useAppContext();
-  const finalPrice = state.basket.reduce((acc,item) => acc + item.price * item.quantity , 0)
+  const { state } = useContext(AppContext);
+  
+  const finalPrice = useMemo(() => {
+    return state.basket.reduce((acc,item) => acc + item.price * item.quantity , 0);
+  }, [state.basket])
+  
+  console.log('finalPrice', finalPrice)
 
   return (
     <>

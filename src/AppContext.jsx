@@ -86,8 +86,20 @@ export function itemsReducer(state, action) {
       state.basket[action.payload - 1].quantity -= 1;
       return state;
     case PLUS_QUANTITY:
-      state.basket[action.payload - 1].quantity += 1;
-      return state;
+      // Копируем то что в корзине 
+      const oldBasket = [...state.basket];
+      // Ищем наш айтем (там где мы кликнули +)
+      const item = oldBasket.find((_, index) => action.payload - 1 === index);
+      // Изменяем куантити
+      Object.assign(item, { quantity: item.quantity + 1 })
+      // Заменяем в массиве старый айтем на новый
+      oldBasket.splice(action.payload - 1, 1, item);
+      
+      // Возвращаем новый стейт (так нужно делать всегда)
+      return {
+        ...state,
+        basket: oldBasket
+      };
     case CHANGE_TOTAL:
       state.sum += action.payload;
       return state;
