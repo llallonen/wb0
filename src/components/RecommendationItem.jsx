@@ -1,6 +1,8 @@
-import React from "react";
+import { addItem, useAppContext } from "../AppContext";
 
 const RecommendationItem = ({ item }) => {
+  const { state, dispatch } = useAppContext();
+  
   if (item.rec)
     return (
       <li className="rec__item" key={item.id}>
@@ -14,7 +16,7 @@ const RecommendationItem = ({ item }) => {
             <h5 className="rec__title">{item.title}</h5>
           </div>
         </div>
-        <button className="btn" type="button">Добавить в корзину</button>
+        <button className="btn" type="button" onClick={() => dispatch(addItem(item))}>Добавить в корзину</button>
       </li>
     );
 };

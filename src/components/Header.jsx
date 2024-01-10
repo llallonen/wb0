@@ -1,6 +1,14 @@
-import React from "react";
+import { useContext, useMemo } from "react";
+import { AppContext } from "../AppContext";
 
 const Header = () => {
+
+  const { state } = useContext(AppContext);
+
+  const totalQua = useMemo(() => {
+    return state.basket.reduce((acc, item) => acc + item.quantity, 0);
+  }, [state.basket]);
+
   return (
     <header className="header app-container">
       <div className="header__left">
@@ -117,7 +125,7 @@ const Header = () => {
               />
             </svg>
             <span>Корзина</span>
-            <span className="cart__notify">3</span>
+            <span className="cart__notify">{totalQua}</span>
           </button>
         </div>
       </div>

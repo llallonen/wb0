@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import DeliveryModal from "./DeliveryModal/DeliveryModal";
 
 const Delivery = () => {

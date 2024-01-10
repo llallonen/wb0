@@ -12,7 +12,6 @@ const CartItem = ({ item }) => {
       setPrice(price - item.price);
       dispatch({ type: "MINUS_QUANTITY", payload: item.id });
       dispatch({ type: "CHANGE_TOTAL", payload: -(item.price) });
-      console.log(state)
     }
   }
 
@@ -22,7 +21,6 @@ const CartItem = ({ item }) => {
       setPrice(price + item.price);
       dispatch({ type: "PLUS_QUANTITY", payload: item.id });
       dispatch({ type: "CHANGE_TOTAL", payload: item.price });
-      console.log(state)
     }
   }
 

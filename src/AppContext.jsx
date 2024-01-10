@@ -12,7 +12,7 @@ const initialBasket = [
     price: 522,
     fullPrice: 1051,
     stock: 2,
-    img: "src/assets/goods/uzcotton.png",
+    img: "assets/goods/uzcotton.png",
     quantity: 1,
   },
   {
@@ -25,7 +25,7 @@ const initialBasket = [
     price: 10500,
     fullPrice: 11500,
     stock: 200,
-    img: "src/assets/goods/mobisafe.png",
+    img: "/assets/goods/mobisafe.png",
     quantity: 1,
   },
   {
@@ -57,8 +57,8 @@ export const MINUS_QUANTITY = "MINUS_QUANTITY";
 export const PLUS_QUANTITY = "PLUS_QUANTITY";
 export const CHANGE_TOTAL = "CHANGE_TOTAL";
 
-export function addItem(price) {
-  return { type: ADD_ITEM, price };
+export function addItem(item) {
+  return { type: ADD_ITEM, item };
 }
 
 export function minusQuantity(id) {
@@ -92,12 +92,11 @@ export function itemsReducer(state, action) {
       // Копируем то что в корзине
       const oldBasket1 = [...state.basket];
       // Ищем наш айтем (там где мы кликнули +)
-      const item1 = oldBasket1.find((_, index) => action.payload - 1 === index);
+      const item1 = oldBasket1.find((el) => el.id === action.payload)
       // Изменяем куантити
       Object.assign(item1, { quantity: item1.quantity + 1 });
       // Заменяем в массиве старый айтем на новый
-      oldBasket1.splice(action.payload - 1, 1, item1);
-
+      oldBasket1.splice(oldBasket1.length - 1, 1, item1);
       // Возвращаем новый стейт (так нужно делать всегда)
       return {
         ...state,
@@ -106,10 +105,24 @@ export function itemsReducer(state, action) {
     case CHANGE_TOTAL:
       state.sum += action.payload;
       return state;
+    case ADD_ITEM:
+      const basket2 = [...state.basket];
+      action.item.quantity = 1;
+      console.log(action.item)
+      basket2.push(action.item);
+      console.log('add', basket2);
+      return {
+        ...state,
+        basket: basket2,
+      };
     case REMOVE_ITEM:
-      const copy = [...state.data.items];
-      copy.splice(action.index, 1);
-      return copy;
+      const basket3 = [...state.basket];
+      basket3.splice(action.index, 1);
+      console.log(state.basket);
+      return {
+        ...state,
+        basket: basket3,
+      };
     default:
       return state;
   }

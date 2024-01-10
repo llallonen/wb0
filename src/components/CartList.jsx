@@ -4,7 +4,7 @@ import { AppContext } from "../AppContext";
 
 const CartList = () => {
   const { state } = useContext(AppContext);
-
+  const goodsInBasket = state.basket.length;
   return (
     <ul>
       {state.basket.map((item) => (

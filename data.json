@@ -9,7 +9,7 @@
     "price": 522,
     "fullPrice": 1051,
     "stock": 2,
-    "img": "src/assets/goods/uzcotton.png"
+    "img": "dist/assets/goods/uzcotton.png"
   },
   {
     "id": 2,
@@ -20,7 +20,7 @@
     "price": 10500,
     "fullPrice": 11500,
     "stock": 200,
-    "img": "src/assets/goods/mobisafe.png"
+    "img": "dist/assets/goods/mobisafe.png"
   },
   {
     "id": 3,
@@ -30,7 +30,7 @@
     "price": 247,
     "fullPrice": 475,
     "stock": 2,
-    "img": "src/assets/goods/fiber.png"
+    "img": "dist/assets/goods/fiber.png"
   },
   {
     "id": 4,
