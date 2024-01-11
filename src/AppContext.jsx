@@ -44,7 +44,13 @@ const initialBasket = [
 
 export const AppContext = createContext();
 
-export const initialItems = { sum: 0, basket: initialBasket, data: data };
+export const initialItems = {
+  sum: 0,
+  basket: initialBasket,
+  delivery: "Выберите способ доставки",
+  payment: "Выберите способ оплаты",
+  data: data,
+};
 
 //добавить 1 единицу товара
 //удалить 1 единицу товара
@@ -56,6 +62,8 @@ export const CLEAR_ALL = "CLEAR_ALL";
 export const MINUS_QUANTITY = "MINUS_QUANTITY";
 export const PLUS_QUANTITY = "PLUS_QUANTITY";
 export const CHANGE_TOTAL = "CHANGE_TOTAL";
+export const CHANGE_DELIVERY = "CHANGE_DELIVERY";
+export const CHANGE_PAYMENT = "CHANGE_PAYMENT";
 
 export function addItem(item) {
   return { type: ADD_ITEM, item };
@@ -77,6 +85,13 @@ export function changeTotal() {
   return { type: CHANGE_TOTAL };
 }
 
+export function changeDelivery(adress) {
+  return { type: CHANGE_DELIVERY, adress };
+}
+export function changePayment(card) {
+  return { type: CHANGE_PAYMENT, card };
+}
+
 export function itemsReducer(state, action) {
   switch (action.type) {
     case MINUS_QUANTITY:
@@ -92,7 +107,7 @@ export function itemsReducer(state, action) {
       // Копируем то что в корзине
       const oldBasket1 = [...state.basket];
       // Ищем наш айтем (там где мы кликнули +)
-      const item1 = oldBasket1.find((el) => el.id === action.payload)
+      const item1 = oldBasket1.find((el) => el.id === action.payload);
       // Изменяем куантити
       Object.assign(item1, { quantity: item1.quantity + 1 });
       // Заменяем в массиве старый айтем на новый
@@ -108,9 +123,7 @@ export function itemsReducer(state, action) {
     case ADD_ITEM:
       const basket2 = [...state.basket];
       action.item.quantity = 1;
-      console.log(action.item)
       basket2.push(action.item);
-      console.log('add', basket2);
       return {
         ...state,
         basket: basket2,
@@ -118,10 +131,20 @@ export function itemsReducer(state, action) {
     case REMOVE_ITEM:
       const basket3 = [...state.basket];
       basket3.splice(action.index, 1);
-      console.log(state.basket);
       return {
         ...state,
         basket: basket3,
+      };
+    case CHANGE_DELIVERY:
+      return {
+        ...state,
+        delivery: action.adress,
+      };
+    case CHANGE_PAYMENT:
+      console.log(action.card)
+      return {
+        ...state,
+        payment: action.card,
       };
     default:
       return state;

@@ -244,6 +244,7 @@ input[type='email']:focus {
   fill: var(--fuchsia);
 }
 
+/*checkbox*/
 .check {
   display: flex;
   align-items: center;
@@ -278,6 +279,61 @@ input[type='email']:focus {
   transition: all 0.2s ease-in;
 }
 
+/*radio button*/
+.radio {
+  margin-bottom: 10px;
+}
+
+.radio input[type='radio'] {
+  display: none;
+}
+
+.radio label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+  margin-right: 0;
+  line-height: 18px;
+  user-select: none;
+}
+
+.radio label::before {
+  position: absolute;
+  content: '';
+  display: flex;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  left: 0;
+  bottom: 1px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--rulers2);
+  background-position: 50%;
+  background-color: transparent;
+}
+
+.radio label::after {
+  position: absolute;
+  content: '';
+  display: flex;
+  justify-content: center;
+  width: 6px;
+  height: 6px;
+  left: 5px;
+  bottom: 6px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.radio input[type='radio']:checked + label:before {
+  background-color: var(--fuchsia);
+  box-shadow: 0 0 0 1px var(--fuchsia);
+}
+.radio input[type='radio']:checked + label:after {
+  background-color: white;
+}
+/*container*/
 .container {
   padding: 22px 25px 50px;
   border-radius: 24px;
@@ -340,7 +396,7 @@ input[type='email']:focus {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 400px;
+  width: 500px;
   padding: 16px 22px;
   background: white;
   z-index: 10;
@@ -350,25 +406,50 @@ input[type='email']:focus {
 
 .payment-modal h3,
 .delivery-modal h3 {
-  margin-bottom: 13px;
+  margin-bottom: 24px;
 }
 
 .tabs {
   width: 100%;
 }
 
-.tabs__nav {
+ul.tabs__nav {
   display: flex;
   justify-content: space-between;
   gap: 8px;
   width: 100%;
+  margin-bottom: 24px;
   padding: 0;
 }
 
 .tab-item {
   flex: 1;
+  padding: 11px 0;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 30px;
   border: 2px solid var(--fuchsia);
   cursor: pointer;
+}
+
+.tab-item.active {
+  color: white;
+  background-color: var(--fuchsia);
+}
+
+.tab-item label {
+  font-size: 26px;
+}
+
+.payment-modal__item {
+  display: flex;
+  gap: 12px;
+}
+
+.payment-modal__icon {
+  width: 40px;
+}
+
+.payment-modal__icon img {
+  display: block;
+  margin: 0 auto;
 }

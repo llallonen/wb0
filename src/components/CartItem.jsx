@@ -65,7 +65,6 @@ const CartItem = ({ item }) => {
                     className="count__btn count__minus"
                     type="button"
                     onClick={() => {
-                      // dispatch(changeQuantity(item.id));
                       decrement();
                     }}
                   >
@@ -76,7 +75,6 @@ const CartItem = ({ item }) => {
                     className="count__btn count__plus"
                     type="button"
                     onClick={() => {
-                      // dispatch({ type: "CHANGE_TOTAL", payload: item.price });
                       increment();
                     }}
                   >

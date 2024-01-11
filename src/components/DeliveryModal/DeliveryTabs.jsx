@@ -4,7 +4,7 @@ import DeliveryTabsItem from "./DeliveryTabsItem";
 import DeliveryTabsContent from "./DeliveryTabsContent";
 import DeliveryTab2 from "./DeliveryTab2";
 
-const DeliveryTabs = () => {
+const DeliveryTabs = ({setIsOpen}) => {
   const [activeTab, setActiveTab] = useState("tab1");
 
   return (
@@ -26,10 +26,10 @@ const DeliveryTabs = () => {
 
       <div className="outlet">
         <DeliveryTabsContent id="tab1" activeTab={activeTab}>
-          <DeliveryTab1 />
+          <DeliveryTab1 setIsOpen={setIsOpen} />
         </DeliveryTabsContent>
         <DeliveryTabsContent id="tab2" activeTab={activeTab}>
-          <DeliveryTab2 />
+          <DeliveryTab2 setIsOpen={setIsOpen} />
         </DeliveryTabsContent>
       </div>
     </div>

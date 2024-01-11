@@ -7,7 +7,7 @@ const DeliveryModal = ({ setIsOpen }) => {
       <div className="darkBG" onClick={() => setIsOpen(false)} />
       <div className="delivery-modal modal">
         <h3>Способ доставки</h3>
-        <DeliveryTabs />
+        <DeliveryTabs setIsOpen={setIsOpen}/>
       </div>
     </>
   );

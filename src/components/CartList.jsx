@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import CartItem from "./CartItem";
 import { AppContext } from "../AppContext";
+import CartItem from "./CartItem";
 
 const CartList = () => {
   const { state } = useContext(AppContext);
-  const goodsInBasket = state.basket.length;
+
   return (
     <ul>
       {state.basket.map((item) => (

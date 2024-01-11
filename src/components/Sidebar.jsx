@@ -75,7 +75,7 @@ const Sidebar = () => {
               </svg>
             </button>
             <p className="sidebar-delivery__adress">
-              Бишкек, улица Ахматбека Суюмбаева, 12/1
+              {state.delivery}
             </p>
             <p className="sidebar-delivery__date">5–8 фев</p>
             <div className="sidebar-delivery__add-info sidebar-badge">
