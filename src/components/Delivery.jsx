@@ -5,9 +5,6 @@ import { AppContext } from "../AppContext";
 const Delivery = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { state } = useContext(AppContext);
-  const savedAdress = useMemo(() => {
-    return state.delivery;
-  }, [state.delivery]);
 
   return (
     <>
@@ -22,7 +19,7 @@ const Delivery = () => {
           <div className="delivery-pickup delivery-item">
             <h5 className="delivery-item__col">Пункт выдачи</h5>
             <div>
-              <p className="delivery-adress text">{savedAdress}</p>
+              <p className="delivery-adress text">{state.delivery}</p>
               <p className="text--small">
                 <span className="delivery-star">
                   <svg

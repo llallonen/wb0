@@ -96,9 +96,10 @@ export function itemsReducer(state, action) {
   switch (action.type) {
     case MINUS_QUANTITY:
       const oldBasket = [...state.basket];
-      const item = oldBasket.find((_, index) => action.payload - 1 === index);
+      const item = oldBasket.find((el) => el.id === action.payload);
+      const idx = oldBasket.findIndex((el) => el.id === item.id);
       Object.assign(item, { quantity: item.quantity - 1 });
-      oldBasket.splice(action.payload - 1, 1, item);
+      oldBasket.splice(idx, 1, item);
       return {
         ...state,
         basket: oldBasket,
@@ -108,10 +109,11 @@ export function itemsReducer(state, action) {
       const oldBasket1 = [...state.basket];
       // Ищем наш айтем (там где мы кликнули +)
       const item1 = oldBasket1.find((el) => el.id === action.payload);
+      const idx1 = oldBasket1.findIndex((el) => el.id === item1.id);
       // Изменяем куантити
       Object.assign(item1, { quantity: item1.quantity + 1 });
       // Заменяем в массиве старый айтем на новый
-      oldBasket1.splice(oldBasket1.length - 1, 1, item1);
+      oldBasket1.splice(idx1, 1, item1);
       // Возвращаем новый стейт (так нужно делать всегда)
       return {
         ...state,
@@ -122,15 +124,29 @@ export function itemsReducer(state, action) {
       return state;
     case ADD_ITEM:
       const basket2 = [...state.basket];
-      action.item.quantity = 1;
-      basket2.push(action.item);
-      return {
-        ...state,
-        basket: basket2,
-      };
+      const item2 = basket2.find((el) => el.id === action.item.id);
+      const idx2 = basket2.findIndex((el) => el.id === action.item.id);
+      console.log("iiidx", idx2);
+      if (item2) {
+        Object.assign(item2, { quantity: (item2.quantity += 1) });
+        console.log("item2", item2);
+        basket2.splice(idx2 , 1, item2);
+        return {
+          ...state,
+          basket: basket2,
+        };
+      } else {
+        action.item.quantity = 1;
+        basket2.push(action.item);
+        return {
+          ...state,
+          basket: basket2,
+        };
+      }
+
     case REMOVE_ITEM:
-      const basket3 = [...state.basket];
-      basket3.splice(action.index, 1);
+      let basket3 = [...state.basket];
+      basket3 = basket3.filter((item) => item.id !== action.index);
       return {
         ...state,
         basket: basket3,
@@ -141,7 +157,6 @@ export function itemsReducer(state, action) {
         delivery: action.adress,
       };
     case CHANGE_PAYMENT:
-      console.log(action.card)
       return {
         ...state,
         payment: action.card,

@@ -161,7 +161,7 @@ const Sidebar = () => {
             <div className="sidebar-payment__card">
               <div className="sidebar-payment__network">
                 <img src="src/assets/icons/mir.svg" alt="MIR" />
-                <p className="sidebar-payment__num">1234 12•• •••• 1234</p>
+                <p className="sidebar-payment__num">{state.payment}</p>
               </div>
               <div className="sidebar-payment__info sidebar-badge">
                 <div>

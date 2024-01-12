@@ -5,10 +5,7 @@ import { AppContext } from "../AppContext";
 const Payment = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { state } = useContext(AppContext);
-  const savedCard = useMemo(() => {
-    console.log(state)
-    return state.payment;
-  }, [state.payment]);
+
 
   return (
     <>
@@ -21,7 +18,7 @@ const Payment = () => {
         </button>
         <div className="payment__card">
           <img src=".src/assets/icons/mir.svg" alt="" />
-          <p className="text card-number">{savedCard}</p>
+          <p className="text card-number">{state.payment}</p>
           <p className="text">01/30</p>
         </div>
         <p className="text--small">Спишем оплату с карты при получении</p>

@@ -12,6 +12,7 @@ const CartItem = ({ item }) => {
       setPrice(price - item.price);
       dispatch({ type: "MINUS_QUANTITY", payload: item.id });
       dispatch({ type: "CHANGE_TOTAL", payload: -(item.price) });
+      console.log(state.basket)
     }
   }
 
@@ -21,6 +22,7 @@ const CartItem = ({ item }) => {
       setPrice(price + item.price);
       dispatch({ type: "PLUS_QUANTITY", payload: item.id });
       dispatch({ type: "CHANGE_TOTAL", payload: item.price });
+      console.log(state.basket)
     }
   }
 
@@ -104,7 +106,10 @@ const CartItem = ({ item }) => {
                   <button
                     className="choose-panel__button"
                     type="button"
-                    onClick={() => dispatch(removeItem(item.index))}
+                    onClick={() => 
+                      {
+                        dispatch(removeItem(item.id))
+                      }}
                   >
                     <svg
                       width="16"
