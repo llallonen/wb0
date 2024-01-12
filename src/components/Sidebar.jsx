@@ -1,7 +1,7 @@
-import { useMemo, useContext, useState } from "react";
+import { useContext, useMemo, useState } from "react";
+import { AppContext } from "../AppContext";
 import DeliveryModal from "./DeliveryModal/DeliveryModal";
 import PaymentModal from "./PaymentModal";
-import { AppContext } from "../AppContext";
 
 const Sidebar = () => {
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
@@ -12,6 +12,20 @@ const Sidebar = () => {
   const finalPrice = useMemo(() => {
     return state.basket.reduce(
       (acc, item) => acc + item.price * item.quantity,
+      0
+    );
+  }, [state.basket]);
+
+  const fullPrice = useMemo(() => {
+    return state.basket.reduce(
+      (acc, item) => acc + item.fullPrice * item.quantity,
+      0
+    );
+  }, [state.basket]);
+
+  const fullDiscount = useMemo(() => {
+    return state.basket.reduce(
+      (acc, item) => acc + (item.fullPrice - item.price) * item.quantity,
       0
     );
   }, [state.basket]);
@@ -34,11 +48,11 @@ const Sidebar = () => {
             </h2>
             <div className="total-table__item sum text">
               <div className="sum__count">Товары, {totalQua} шт</div>
-              <div className="sum__total">2 101 063 сом</div>
+              <div className="sum__total">{fullPrice} сом</div>
             </div>
             <div className="total-table__item discount text">
               <div>Скидка</div>
-              <div className="sum__dicount">−200 985 сом</div>
+              <div className="sum__dicount">−{fullDiscount} сом</div>
             </div>
             <div className="total-table__item delivery text">
               <div>Доставка</div>
@@ -74,9 +88,7 @@ const Sidebar = () => {
                 />
               </svg>
             </button>
-            <p className="sidebar-delivery__adress">
-              {state.delivery}
-            </p>
+            <p className="sidebar-delivery__adress">{state.delivery}</p>
             <p className="sidebar-delivery__date">5–8 фев</p>
             <div className="sidebar-delivery__add-info sidebar-badge">
               <div className="sidebar-delivery__check-icon">
