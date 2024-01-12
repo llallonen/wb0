@@ -46,17 +46,6 @@ const Delivery = () => {
             <h5 className="delivery-item__col">Стоимость доставки</h5>
             <p className="text">Бесплатно</p>
           </div>
-          <div className="delivery-time delivery-item">
-            <ul className="delivery-time__list delivery-item__col">
-              <li className="delivery-time__item">
-                <h5>5—6 февраля</h5>
-                <div></div>
-              </li>
-              <li className="delivery-time__item">
-                <h5>5—6 февраля</h5>
-              </li>
-            </ul>
-          </div>
           <div className="delivery-item">
             <div className="delivery__refusal">
               <svg
