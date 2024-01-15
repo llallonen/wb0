@@ -11,6 +11,7 @@ const initialBasket = [
     provider: "OOO Вайлдберриз",
     price: 522,
     fullPrice: 1051,
+    totalSum: 522,
     stock: 2,
     img: "assets/goods/uzcotton.png",
     quantity: 1,
@@ -22,8 +23,9 @@ const initialBasket = [
     color: "прозрачный",
     store: "Коледино WB",
     provider: "OOO Мегапрофстиль",
-    price: 10500,
-    fullPrice: 11500,
+    price: 105,
+    fullPrice: 115,
+    totalSum: 105,
     stock: 200,
     img: "/assets/goods/mobisafe.png",
     quantity: 1,
@@ -36,6 +38,7 @@ const initialBasket = [
     provider: "OOO Вайлдберриз",
     price: 247,
     fullPrice: 475,
+    totalSum: 247,
     stock: 2,
     img: "src/assets/goods/fiber.png",
     quantity: 1,
@@ -98,7 +101,12 @@ export function itemsReducer(state, action) {
       const oldBasket = [...state.basket];
       const item = oldBasket.find((el) => el.id === action.payload);
       const idx = oldBasket.findIndex((el) => el.id === item.id);
-      Object.assign(item, { quantity: item.quantity - 1 });
+      Object.assign(item, {
+        quantity: item.quantity - 1,
+      });
+      Object.assign(item, {
+        totalSum: item.quantity * item.price,
+      });
       oldBasket.splice(idx, 1, item);
       return {
         ...state,
@@ -107,14 +115,13 @@ export function itemsReducer(state, action) {
     case PLUS_QUANTITY:
       // Копируем то что в корзине
       const oldBasket1 = [...state.basket];
-      // Ищем наш айтем (там где мы кликнули +)
       const item1 = oldBasket1.find((el) => el.id === action.payload);
       const idx1 = oldBasket1.findIndex((el) => el.id === item1.id);
-      // Изменяем куантити
-      Object.assign(item1, { quantity: item1.quantity + 1 });
-      // Заменяем в массиве старый айтем на новый
+      Object.assign(item1, {
+        quantity: item1.quantity + 1,
+      });
+      Object.assign(item1, { totalSum: item1.quantity * item1.price });
       oldBasket1.splice(idx1, 1, item1);
-      // Возвращаем новый стейт (так нужно делать всегда)
       return {
         ...state,
         basket: oldBasket1,
@@ -126,11 +133,12 @@ export function itemsReducer(state, action) {
       const basket2 = [...state.basket];
       const item2 = basket2.find((el) => el.id === action.item.id);
       const idx2 = basket2.findIndex((el) => el.id === action.item.id);
-      console.log("iiidx", idx2);
       if (item2) {
-        Object.assign(item2, { quantity: (item2.quantity += 1) });
-        console.log("item2", item2);
-        basket2.splice(idx2 , 1, item2);
+        Object.assign(item2, {
+          quantity: (item2.quantity += 1),
+        });
+        Object.assign(item2, { totalSum: item2.quantity * item2.price });
+        basket2.splice(idx2, 1, item2);
         return {
           ...state,
           basket: basket2,

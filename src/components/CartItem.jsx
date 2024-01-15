@@ -3,26 +3,24 @@ import { removeItem, useAppContext } from "../AppContext";
 
 const CartItem = ({ item }) => {
   const { state, dispatch } = useAppContext();
-  const [qua, setQua] = useState(item.quantity);
-  const [price, setPrice] = useState(item.price);
+  // const [qua, setQua] = useState(item.quantity);
+  // const [price, setPrice] = useState(item.price);
 
   function decrement() {
-    if (qua > 0) {
-      setQua(qua - 1);
-      setPrice(price - item.price);
+    if (item.quantity > 0) {
+      // setQua(qua - 1);
+      // setPrice(price - item.price);
       dispatch({ type: "MINUS_QUANTITY", payload: item.id });
       dispatch({ type: "CHANGE_TOTAL", payload: -(item.price) });
-      console.log(state.basket)
     }
   }
 
   function increment() {
-    if (qua < item.stock) {
-      setQua(qua + 1);
-      setPrice(price + item.price);
+    if (item.quantity < item.stock) {
+      // setQua(qua + 1);
+      // setPrice(price + item.price);
       dispatch({ type: "PLUS_QUANTITY", payload: item.id });
       dispatch({ type: "CHANGE_TOTAL", payload: item.price });
-      console.log(state.basket)
     }
   }
 
@@ -38,7 +36,7 @@ const CartItem = ({ item }) => {
               <div className="good__description">
                 <div className="subtotal subtotal--mob">
                   <h4 className="subtotal__discount">
-                    {price} <span className="h4">сом</span>
+                    {item.totalSum} <span className="h4">сом</span>
                   </h4>
                   <div className="subtotal__full">{item.fullPrice} сом</div>
                 </div>
@@ -72,7 +70,7 @@ const CartItem = ({ item }) => {
                   >
                     –
                   </button>
-                  <input className="count__input" type="text" value={qua} />
+                  <input className="count__input" type="text" value={item.quantity} />
                   <button
                     className="count__btn count__plus"
                     type="button"
@@ -142,7 +140,7 @@ const CartItem = ({ item }) => {
               </div>
               <div className="cart-item__subtotal subtotal subtotal--desktop">
                 <h3 className="subtotal__discount">
-                  {price} <span className="h4">сом</span>
+                  {item.totalSum} <span className="h4">сом</span>
                 </h3>
                 <div className="subtotal__full">{item.fullPrice} сом</div>
               </div>

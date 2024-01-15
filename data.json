@@ -8,6 +8,7 @@
     "provider": "OOO Вайлдберриз",
     "price": 522,
     "fullPrice": 1051,
+    "totalSum": 522,
     "stock": 2,
     "img": "dist/assets/goods/uzcotton.png"
   },
@@ -17,8 +18,9 @@
     "color": "прозрачный",
     "store": "Коледино WB",
     "provider": "OOO Мегапрофстиль",
-    "price": 10500,
-    "fullPrice": 11500,
+    "price": 105,
+    "fullPrice": 115,
+    "totalSum": 105,
     "stock": 200,
     "img": "dist/assets/goods/mobisafe.png"
   },
@@ -29,6 +31,7 @@
     "provider": "OOO Вайлдберриз",
     "price": 247,
     "fullPrice": 475,
+    "totalSum": 247,
     "stock": 2,
     "img": "dist/assets/goods/fiber.png"
   },
@@ -40,6 +43,7 @@
     "provider": "OOO Вайлдберриз",
     "price": 180,
     "fullPrice": 205,
+    "totalSum": 180,
     "stock": 0,
     "img": "src/assets/goods/candle.png"
   },
@@ -51,6 +55,7 @@
     "provider": "OOO Вайлдберриз",
     "price": 200,
     "fullPrice": 250,
+    "totalSum": 200,
     "stock": 0,
     "img": "src/assets/goods/kettle.png"
   },
@@ -62,6 +67,7 @@
     "provider": "OOO Вайлдберриз",
     "price": 300,
     "fullPrice": 450,
+    "totalSum": 300,
     "stock": 10,
     "img": "src/assets/goods/vase.png",
     "rec": true
@@ -74,6 +80,7 @@
     "provider": "OOO Вайлдберриз",
     "price": 420,
     "fullPrice": 490,
+    "totalSum": 420,
     "stock": 6,
     "img": "src/assets/goods/pillow.png",
     "rec": true
@@ -86,6 +93,7 @@
     "provider": "OOO Вайлдберриз",
     "price": 2200,
     "fullPrice": 3250,
+    "totalSum": 2200,
     "stock": 4,
     "img": "src/assets/goods/blanket.png",
     "rec": true
