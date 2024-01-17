@@ -10,7 +10,7 @@
     "fullPrice": 1051,
     "totalSum": 522,
     "stock": 2,
-    "img": "dist/assets/goods/uzcotton.png"
+    "img": "/goods/uzcotton.png"
   },
   {
     "id": 2,
@@ -44,20 +44,8 @@
     "price": 180,
     "fullPrice": 205,
     "totalSum": 180,
-    "stock": 0,
-    "img": "src/assets/goods/candle.png"
-  },
-  {
-    "id": 5,
-    "title": "Чайник заварочный стеклянный - заварник 900мл",
-    "store": "Коледино WB",
-    "color": "прозрачный",
-    "provider": "OOO Вайлдберриз",
-    "price": 200,
-    "fullPrice": 250,
-    "totalSum": 200,
-    "stock": 0,
-    "img": "src/assets/goods/kettle.png"
+    "stock": 10,
+    "img": "/goods/candle.png"
   },
   {
     "id": 6,
@@ -69,7 +57,7 @@
     "fullPrice": 450,
     "totalSum": 300,
     "stock": 10,
-    "img": "src/assets/goods/vase.png",
+    "img": "/goods/vase.png",
     "rec": true
   },
   {
@@ -82,7 +70,7 @@
     "fullPrice": 490,
     "totalSum": 420,
     "stock": 6,
-    "img": "src/assets/goods/pillow.png",
+    "img": "/goods/pillow.png",
     "rec": true
   },
   {
@@ -95,7 +83,7 @@
     "fullPrice": 3250,
     "totalSum": 2200,
     "stock": 4,
-    "img": "src/assets/goods/blanket.png",
+    "img": "/goods/blanket.png",
     "rec": true
   }
 ]

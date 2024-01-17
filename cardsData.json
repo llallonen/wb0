@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "sys": "/icons/visa.svg",
+    "number": "1234 56•• •••• 3412",
+    "valid": "02/28"
+  },
+  {
+    "id": 2,
+    "sys": "/icons/mir.svg",
+    "number": "2345 67•• •••• 2341",
+    "valid": "04/28"
+  },
+  {
+    "id": 3,
+    "sys": "/icons/mastercard.svg",
+    "number": "345 678•• •••• 4123",
+    "valid": "02/29"
+  }
+]

@@ -13,7 +13,7 @@ const initialBasket = [
     fullPrice: 1051,
     totalSum: 522,
     stock: 2,
-    img: "assets/goods/uzcotton.png",
+    img: "/goods/uzcotton.png",
     quantity: 1,
   },
   {
@@ -27,7 +27,7 @@ const initialBasket = [
     fullPrice: 115,
     totalSum: 105,
     stock: 200,
-    img: "/assets/goods/mobisafe.png",
+    img: "/goods/mobisafe.png",
     quantity: 1,
   },
   {
@@ -40,19 +40,12 @@ const initialBasket = [
     fullPrice: 475,
     totalSum: 247,
     stock: 2,
-    img: "src/assets/goods/fiber.png",
+    img: "/goods/fiber.png",
     quantity: 1,
   },
 ];
 
 export const AppContext = createContext()
-
-const initialPayment = {
-  id: 1,
-  sys: "src/assets/icons/visa.svg",
-  number: "1234 56•• •••• 3412",
-  valid: "02/28"
-}
 
 export const initialItems = {
   sum: 0,
@@ -61,7 +54,6 @@ export const initialItems = {
   payment: "Выберите способ оплаты",
   data: data,
 };
-
 
 export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";

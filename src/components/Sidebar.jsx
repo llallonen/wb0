@@ -40,10 +40,10 @@ const Sidebar = () => {
         {goodsInBasket ? (
           <div className="total-table">
             <h2 className="cart-sidebar__title">
-              Итого{" "}
+              Итого  {" "}
               <div id="sidebar-total">
                 {finalPrice}
-                <span className="sidebar-toral__currency">сом</span>
+                <span className="sidebar-toral__currency">  сом</span>
               </div>
             </h2>
             <div className="total-table__item sum text">
@@ -69,9 +69,15 @@ const Sidebar = () => {
             className="title-btn"
             onClick={() => setIsDeliveryModalOpen(true)}
           >
-            <h4 className="sidebar-delivery__title h4">
-              Доставка в пункт выдачи
-            </h4>
+            {state.delivery.title ? (
+              <h4 className="sidebar-delivery__title h4">
+                {state.delivery.title}
+              </h4>
+            ) : (
+              <h4 className="sidebar-delivery__title h4">
+                Выберите способ доставки
+              </h4>
+            )}
             <svg
               width="20"
               height="20"
@@ -93,7 +99,7 @@ const Sidebar = () => {
               />
             </svg>
           </button>
-          <p className="sidebar-delivery__adress">{state.delivery}</p>
+          <p className="sidebar-delivery__adress">{state.delivery.address}</p>
           <p className="sidebar-delivery__date">5–8 фев</p>
           <div className="sidebar-delivery__add-info sidebar-badge">
             <div className="sidebar-delivery__check-icon">
@@ -202,25 +208,13 @@ const Sidebar = () => {
             Заказать
           </button>
           <div className="sidebar__oferta">
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="13"
-                height="24"
-                viewBox="0 0 13 24"
-                fill="none"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M12.7656 4.68034L4.59581 13.4815L0.257278 8.66922L1.74272 7.33001L4.61735 10.5185L11.2998 3.31967L12.7656 4.68034Z"
-                  fill="black"
-                />
-              </svg>
-            </div>
-            <p className="text--small">
-              Соглашаюсь с правилами пользования торговой площадкой и возврата
-            </p>
+            <label className="check">
+              <input type="checkbox" className="check__input" />
+              <span className="checkbox"></span>
+              <p className="text--small">
+                Соглашаюсь с правилами пользования торговой площадкой и возврата
+              </p>
+            </label>
           </div>
         </div>
       </div>
