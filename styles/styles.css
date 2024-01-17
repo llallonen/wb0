@@ -96,8 +96,7 @@ button {
 
 button:hover,
 button:focus {
-  font-weight: 500;
-  text-shadow: white 0 0 2px;
+  text-shadow: rgb(220, 216, 216) 0 0 0.1px;
 }
 
 .btn {
@@ -113,6 +112,10 @@ button:focus {
   color: white;
   background-color: var(--fuchsia);
   transition: all 0.1s ease-in;
+}
+
+.btn:hover {
+  filter:grayscale(0.1)
 }
 
 h2 {
@@ -260,7 +263,7 @@ input[type='email']:focus {
 
 .check__input:checked + .checkbox {
   background-color: var(--fuchsia);
-  background-image: url('../assets/icons/check.svg');
+  background-image: url('../src/assets/icons/check.svg');
   box-shadow: 0 0 0 1px var(--fuchsia);
 }
 
@@ -438,6 +441,10 @@ ul.tabs__nav {
 
 .tab-item label {
   font-size: 26px;
+}
+.payment-modal__label label {
+  display: flex;
+  gap: 15px;
 }
 
 .payment-modal__item {

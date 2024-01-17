@@ -120,6 +120,16 @@
   width: 85%;
 }
 
+.sidebar__oferta .checkbox {
+  width: 18px;
+  height: 18px;
+}
+
+.sidebar__oferta .check__input:checked + .checkbox {
+  background-color: var(--gray);
+  background-image: url('../src/assets/icons/check.svg');
+  box-shadow: 0 0 0 1px var(--gray);
+}
 .order-btn:hover {
   filter: brightness(1.07);
 }
@@ -129,9 +139,8 @@
   gap: 10px;
   margin-top: 10px;
   padding-left: 25px;
-
 }
+
 .delivery-modal__pick span {
-  
-color: var(--gray);
+  color: var(--gray);
 }
