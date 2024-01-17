@@ -348,9 +348,18 @@
 }
 
 .rec__item img {
-  object-fit: cover;
-  height: 240px;
   width: 100%;
+  height: 240px;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.rec__subtotal {
+  margin-bottom: 24px;
+}
+
+.rec__discount {
+  font-size: 20px;
 }
 
 /*delivery section*/
@@ -411,6 +420,7 @@
 /*payment section*/
 .payment__card {
   display: flex;
+  align-items: center;
   margin-bottom: 8px;
 }
 
@@ -420,6 +430,10 @@
 
 .payment__card .card-number {
   margin-right: 12px;
+}
+
+.card-placeholder {
+  margin-bottom: 10px;
 }
 
 .payment .text--small {
@@ -467,11 +481,6 @@
   font-size: 12px;
   line-height: 14px;
   height: 18px;
-}
-
-.basket-empty {
-  width: fit-content;
-  text-align: center;
 }
 
 .basket-empty h3 {

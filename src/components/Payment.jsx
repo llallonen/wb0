@@ -6,7 +6,6 @@ const Payment = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { state } = useContext(AppContext);
 
-
   return (
     <>
       <section className="payment contrast-container">
@@ -16,11 +15,16 @@ const Payment = () => {
             Изменить
           </p>
         </button>
-        <div className="payment__card">
-          <img src=".src/assets/icons/mir.svg" alt="" />
-          <p className="text card-number">{state.payment}</p>
-          <p className="text">01/30</p>
-        </div>
+        {state.payment !== "Выберите способ оплаты" ? (
+          <div className="payment__card">
+            <img src={state.payment.sys} alt="" />
+            <p className="text card-number">{state.payment.number}</p>
+            <p className="text">{state.payment.valid}</p>
+          </div>
+        ) : (
+          <p className="text card-placeholder">{state.payment}</p>
+        )}
+
         <p className="text--small">Спишем оплату с карты при получении</p>
       </section>
       {isOpen && <PaymentModal setIsOpen={setIsOpen} />}

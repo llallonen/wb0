@@ -45,7 +45,14 @@ const initialBasket = [
   },
 ];
 
-export const AppContext = createContext();
+export const AppContext = createContext()
+
+const initialPayment = {
+  id: 1,
+  sys: "src/assets/icons/visa.svg",
+  number: "1234 56•• •••• 3412",
+  valid: "02/28"
+}
 
 export const initialItems = {
   sum: 0,
@@ -55,9 +62,6 @@ export const initialItems = {
   data: data,
 };
 
-//добавить 1 единицу товара
-//удалить 1 единицу товара
-//удалить все единицы одного товара
 
 export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
