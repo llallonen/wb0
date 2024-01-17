@@ -33,11 +33,6 @@ const Cart = () => {
               </div>
             )}
           </section>
-          <section className="unavailable">
-            <h5 className="unavailable__title">Отсутствуют · 3 товара</h5>
-            <div className="ruler"></div>
-            <UnavailableList />
-          </section>
           <Recommendation />
           <CartAdd />
         </div>
