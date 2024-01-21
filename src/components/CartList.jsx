@@ -7,9 +7,16 @@ const CartList = () => {
 
   return (
     <ul>
-      {state.basket.map((item) => (
-        <CartItem item={item} key={item.id} />
-      ))}
+      {state.basket.map((item) => {
+        const idx = state.checkList.findIndex(
+          (checkListItem) => checkListItem.id === item.id
+        );
+        const isThisItemChecked = state.checkList[idx].isChecked;
+        console.log(`item ${item.id} was checked?`, isThisItemChecked)
+        return (
+          <CartItem item={item} key={item.id} checked={isThisItemChecked} />
+        );
+      })}
     </ul>
   );
 };

@@ -1,36 +1,37 @@
 import { useState } from "react";
 import { removeItem, useAppContext } from "../AppContext";
+import Checkbox from "./Checkbox/Checkbox";
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, checked }) => {
   const { state, dispatch } = useAppContext();
-  // const [qua, setQua] = useState(item.quantity);
-  // const [price, setPrice] = useState(item.price);
 
   function decrement() {
     if (item.quantity > 0) {
-      // setQua(qua - 1);
-      // setPrice(price - item.price);
       dispatch({ type: "MINUS_QUANTITY", payload: item.id });
-      dispatch({ type: "CHANGE_TOTAL", payload: -(item.price) });
+      dispatch({ type: "CHANGE_TOTAL", payload: -item.price });
     }
   }
 
   function increment() {
     if (item.quantity < item.stock) {
-      // setQua(qua + 1);
-      // setPrice(price + item.price);
       dispatch({ type: "PLUS_QUANTITY", payload: item.id });
       dispatch({ type: "CHANGE_TOTAL", payload: item.price });
     }
   }
 
+  console.log('checked', checked)
   if (item.stock > 0)
     return (
       <li className="cart__item" key={item.id}>
         <label className="check">
           <div className="cart-item__wr">
             <div className="cart-item__good good">
-              <input type="checkbox" className="check__input" />
+              <Checkbox
+                checked={checked}
+                onChange={(newState, id = item.id) => {
+                  dispatch({ type: "CHECK_ITEM", payload: { newState, id } });
+                }}
+              />
               <span className="checkbox"></span>
               <img className="good__pic" src={item.img} alt="" />
               <div className="good__description">
@@ -70,7 +71,13 @@ const CartItem = ({ item }) => {
                   >
                     –
                   </button>
-                  <input className="count__input" type="text" value={item.quantity} />
+                  <div
+                    className="count__input"
+                    type="text"
+                    value={item.quantity}
+                  >
+                    {item.quantity}
+                  </div>
                   <button
                     className="count__btn count__plus"
                     type="button"
@@ -104,10 +111,9 @@ const CartItem = ({ item }) => {
                   <button
                     className="choose-panel__button"
                     type="button"
-                    onClick={() => 
-                      {
-                        dispatch(removeItem(item.id))
-                      }}
+                    onClick={() => {
+                      dispatch(removeItem(item.id));
+                    }}
                   >
                     <svg
                       width="16"

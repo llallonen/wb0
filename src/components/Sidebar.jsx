@@ -40,10 +40,10 @@ const Sidebar = () => {
         {goodsInBasket ? (
           <div className="total-table">
             <h2 className="cart-sidebar__title">
-              Итого  {" "}
+              Итого{" "}
               <div id="sidebar-total">
                 {finalPrice}
-                <span className="sidebar-toral__currency">  сом</span>
+                <span className="sidebar-toral__currency"> сом</span>
               </div>
             </h2>
             <div className="total-table__item sum text">
@@ -69,15 +69,11 @@ const Sidebar = () => {
             className="title-btn"
             onClick={() => setIsDeliveryModalOpen(true)}
           >
-            {state.delivery.title ? (
-              <h4 className="sidebar-delivery__title h4">
-                {state.delivery.title}
-              </h4>
-            ) : (
-              <h4 className="sidebar-delivery__title h4">
-                Выберите способ доставки
-              </h4>
-            )}
+            <h4 className="sidebar-delivery__title h4">
+              {state.delivery.title
+                ? state.delivery.title
+                : "Выберите способ доставки"}
+            </h4>
             <svg
               width="20"
               height="20"

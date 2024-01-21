@@ -15,6 +15,7 @@ const initialBasket = [
     stock: 2,
     img: "/goods/uzcotton.png",
     quantity: 1,
+    isChecked: false,
   },
   {
     id: 2,
@@ -29,6 +30,7 @@ const initialBasket = [
     stock: 200,
     img: "/goods/mobisafe.png",
     quantity: 1,
+    isChecked: false,
   },
   {
     id: 3,
@@ -42,10 +44,15 @@ const initialBasket = [
     stock: 2,
     img: "/goods/fiber.png",
     quantity: 1,
+    isChecked: false,
   },
 ];
 
-export const AppContext = createContext()
+export const initialCheckList = [
+  { id: 1, isChecked: false },
+  { id: 2, isChecked: false },
+  { id: 3, isChecked: false },
+];
 
 export const initialItems = {
   sum: 0,
@@ -53,8 +60,10 @@ export const initialItems = {
   delivery: "Выберите способ доставки",
   payment: "Выберите способ оплаты",
   data: data,
+  checkList: initialCheckList,
 };
 
+export const AppContext = createContext();
 export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const CLEAR_ALL = "CLEAR_ALL";
@@ -63,6 +72,8 @@ export const PLUS_QUANTITY = "PLUS_QUANTITY";
 export const CHANGE_TOTAL = "CHANGE_TOTAL";
 export const CHANGE_DELIVERY = "CHANGE_DELIVERY";
 export const CHANGE_PAYMENT = "CHANGE_PAYMENT";
+export const CHECK_ITEM = "CHECK_ITEM";
+export const CHECK_ALL = "CHECK_ALL";
 
 export function addItem(item) {
   return { type: ADD_ITEM, item };
@@ -87,8 +98,17 @@ export function changeTotal() {
 export function changeDelivery(adress) {
   return { type: CHANGE_DELIVERY, adress };
 }
+
 export function changePayment(card) {
   return { type: CHANGE_PAYMENT, card };
+}
+
+export function checkItem(card) {
+  return { type: CHECK_ITEM, card };
+}
+
+export function checkAll(checkedState) {
+  return { type: CHECK_ALL, checkedState };
 }
 
 export function itemsReducer(state, action) {
@@ -108,8 +128,8 @@ export function itemsReducer(state, action) {
         ...state,
         basket: oldBasket,
       };
+
     case PLUS_QUANTITY:
-      // Копируем то что в корзине
       const oldBasket1 = [...state.basket];
       const item1 = oldBasket1.find((el) => el.id === action.payload);
       const idx1 = oldBasket1.findIndex((el) => el.id === item1.id);
@@ -118,15 +138,19 @@ export function itemsReducer(state, action) {
       });
       Object.assign(item1, { totalSum: item1.quantity * item1.price });
       oldBasket1.splice(idx1, 1, item1);
+      console.log(state);
       return {
         ...state,
         basket: oldBasket1,
       };
+
     case CHANGE_TOTAL:
       state.sum += action.payload;
       return state;
+
     case ADD_ITEM:
       const basket2 = [...state.basket];
+      const checklist = [...state.checkList];
       const item2 = basket2.find((el) => el.id === action.item.id);
       const idx2 = basket2.findIndex((el) => el.id === action.item.id);
       if (item2) {
@@ -135,6 +159,8 @@ export function itemsReducer(state, action) {
         });
         Object.assign(item2, { totalSum: item2.quantity * item2.price });
         basket2.splice(idx2, 1, item2);
+        console.log("adding", state);
+
         return {
           ...state,
           basket: basket2,
@@ -142,29 +168,69 @@ export function itemsReducer(state, action) {
       } else {
         action.item.quantity = 1;
         basket2.push(action.item);
+        checklist.push({ id: action.item.id, checked: false });
+        console.log("adding", state);
         return {
           ...state,
           basket: basket2,
+          checkList: checklist,
         };
       }
 
     case REMOVE_ITEM:
       let basket3 = [...state.basket];
+      let checklist3 = [...state.checkList];
       basket3 = basket3.filter((item) => item.id !== action.index);
+      checklist3 = checklist3.filter((item) => item.id !== action.index);
+      console.log("deleting", state);
       return {
         ...state,
         basket: basket3,
+        checkList: checklist3,
       };
+
+    case CHECK_ITEM:
+
+      console.log(action.payload)
+      let checkListCopy = [...state.checkList];
+      const itemCheck = checkListCopy.find((el) => el.id === action.payload.id);
+      if (itemCheck) {
+        Object.assign(itemCheck, {
+          isChecked: action.payload.newState,
+        });
+      }
+      return {
+        ...state,
+        checkList: checkListCopy,
+      };
+
+    case CHECK_ALL:
+      console.log(state)
+
+      let checkListCopy2 = [...state.checkList];
+      checkListCopy2.forEach((item) => {
+        Object.assign(item, {
+          isChecked: action.payload,
+        });
+      });
+
+      return {
+        ...state,
+        checkList: checkListCopy2,
+      };
+
     case CHANGE_DELIVERY:
       return {
         ...state,
         delivery: action.adress,
       };
+
     case CHANGE_PAYMENT:
       return {
         ...state,
         payment: action.card,
       };
+
     default:
       return state;
   }

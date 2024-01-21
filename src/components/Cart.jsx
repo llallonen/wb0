@@ -1,10 +1,11 @@
+import { useContext } from "react";
+import { AppContext} from "../AppContext";
 import CartAdd from "./CartAdd";
 import CartList from "./CartList";
-import Sidebar from "./Sidebar";
-import UnavailableList from "./UnavailableList";
 import Recommendation from "./Recommendation";
-import { useContext } from "react";
-import { AppContext } from "../AppContext";
+import Sidebar from "./Sidebar";
+import Checkbox from "./Checkbox/Checkbox";
+import ChooseAllCheckbox from "./Checkbox/ChooseAllCheckbox.JSx";
 
 const Cart = () => {
   const { state } = useContext(AppContext);
@@ -19,8 +20,8 @@ const Cart = () => {
             {goodsInBasket ? (
               <>
                 <label className="check check-all">
-                  <input type="checkbox" className="check__input" />
-                  <span className="checkbox"></span>
+                  <ChooseAllCheckbox />
+                  <span className="checkbox" ></span>
                   <h5>Выбрать все</h5>
                 </label>
                 <div className="ruler"></div>

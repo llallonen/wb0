@@ -255,10 +255,10 @@ input[type='email']:focus {
 
 .check__input {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
+  width: 30px;
+  height: 30px;
+  /* overflow: hidden;
+  clip: rect(0 0 0 0); */
 }
 
 .check__input:checked + .checkbox {
